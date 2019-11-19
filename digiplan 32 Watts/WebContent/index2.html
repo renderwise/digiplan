@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+
+</head>
+<body>
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse"  >
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#" >ALIGNWISE</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+  
+     	
+     	<ul class="nav navbar-nav navbar-right">
+      <li class="dropdown ">
+        <a style="margin-right: 20px;" class="dropdown-toggle" data-toggle="dropdown" href="#">{{user}}
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">See previous prescription</a></li>
+          <li><a href="#">Logout</a></li>
+         
+        </ul>
+      </li>
+     
+    
+      
+    </ul>
+  </div>
+</nav>
+<br>
+<div class="container">
+
+<div class="row" >
+<div class=" col-lg-3" ></div>
+<div class=" col-lg-6" style="text-align: center;" >
+<label><b>PATIENT PRESCRIPTION FORM</b> </label>
+</div>
+
+<div class="col-lg-3" > </div></div>
+<br>
+<br>
+<div class="row" >
+<div class="col-lg-2" ></div>
+<div class="col-md-12 col-sm-12  col-lg-8 " >
+
+
+  <form>
+ 	
+
+  <div style="background-color: #deffff; padding: 20px;">
+  	<div style="text-align: right;" class="form-group row">
+  		<div class="col-4"></div>
+      <label for="Date" class="col-4 col-form-label">Date</label>
+      <div class="col-4">
+        <input type="date" class="form-control" id="Date" >
+      </div>
+    </div> 
+  <div><label><b>BASIC INFORMATION</b> </label></div>
+	<hr style="" >
+    <div class="form-group row">
+      <label for="DoctorName" class="col-lg-4 col-form-label">Doctor's Name</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" id="DoctorName" placeholder="Doctor Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="ClinicAddress" class="col-lg-4 col-form-label">Clinic Address</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" id="ClinicAddress" placeholder="Clinic Address">
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="PatientName" class="col-lg-4 col-form-label">Patient Name</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" id="PatientName" placeholder="Patient Name">
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="Gender" class="col-lg-4 col-form-label">Gender</label>
+      <div class="col-lg-8">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="gridRadios" id="Gender" value="Male" checked>
+            Male &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="gridRadios" id="Gender" value="Female" >
+            Female
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    
+    <div class="form-group row">
+      <label for="DOB" class="col-lg-4 col-form-label">Date Of Birth</label>
+      <div class="col-lg-8">
+        <input type="date" class="form-control" id="DOB" placeholder="Patient Name">
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="Age" class="col-lg-4 col-form-label">Age</label>
+      <div class="col-lg-8">
+        <input type="text" disabled="disabled" class="form-control" id="Age" placeholder="Age">
+      </div>
+    </div>
+    
+   </div>
+   
+    <div style="background-color: #deffff; padding: 20px;">
+  <div><label><b>CLINICAL DATA</b> </label></div>
+	<hr style="" >
+	
+    <div class="form-group row">
+      <label for="ChiefComplaint" class="col-lg-4 col-form-label">Chief Complaint</label>
+      <div class="col-lg-8">
+        <textarea class="form-control" id="ChiefComplaint" placeholder="ChiefComplaint"></textarea>
+      </div>
+    </div>
+    <br>
+    <div class="form-group row">
+      <label  class="col-lg-6 col-form-label">Clinical Examination :</label>
+      
+    </div>
+    <div class="form-group row">
+      <label  class="col-lg-6 col-form-label">&nbsp &nbsp 1. Intra-Arch</label>
+      
+    </div>
+    
+    
+    
+    <div id="Intra-Arch" class="row">
+    <div class=" col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    <div style="text-align: center; border-bottom:thin solid;  "  >Upper</div>
+    <br>
+     <div class="form-group row">
+      <label for="Crowding" class="col-4 col-form-label">Crowding</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Crowding" id="Crowding" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Crowding" id="Crowding" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="Spacing" class="col-4 col-form-label">Spacing</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Spacing" id="Spacing" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Spacing" id="Spacing" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+      <div class="form-group row">
+      <label for="Rotation" class="col-4 col-form-label">Rotation</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Rotation" id="Rotation" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Rotation" id="Rotation" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+      <div class="form-group row">
+      <label for="ArchForm" class="col-4 col-form-label">Arch Form</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="ArchForm" id="ArchForm" value="Normal" checked>
+            Normal &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="ArchForm" id="ArchForm" value="Wide" >
+            Wide
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="MalformationOfTeeth" class="col-lg-4 col-form-label">Malformation of teeth</label>
+      <div class="col-lg-8" style="text-align: center;">
+        <input type="text" class="form-control" id="MalformationOfTeeth" placeholder="Malformation of teeth">
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="ToothNumber" class="col-lg-4 col-form-label">Specify tooth No.</label>
+      <div class="col-lg-8" style="text-align: center;">
+        <input type="text" class="form-control" id="ToothNumber" placeholder="Specify tooth No.">
+      </div>
+    </div>
+    
+    <div>
+    </div>
+    
+    </div>
+     </div>
+    
+     <div class=" col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    <div style="text-align: center; border-bottom:thin solid;  "  >Lower</div>
+    <br>
+     <div class="form-group row">
+      <label for="Crowding" class="col-4 col-form-label">Crowding</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Crowding" id="Crowding" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Crowding" id="Crowding" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="Spacing" class="col-4 col-form-label">Spacing</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Spacing" id="Spacing" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Spacing" id="Spacing" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+      <div class="form-group row">
+      <label for="Rotation" class="col-4 col-form-label">Rotation</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Rotation" id="Rotation" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Rotation" id="Rotation" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+      <div class="form-group row">
+      <label for="ArchForm" class="col-4 col-form-label">Arch Form</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="ArchForm" id="ArchForm" value="Normal" checked>
+            Normal &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="ArchForm" id="ArchForm" value="Wide" >
+            Wide
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="MalformationOfTeeth" class="col-lg-4 col-form-label">Malformation of teeth</label>
+      <div class="col-lg-8" style="text-align: center;">
+        <input type="text" class="form-control" id="MalformationOfTeeth" placeholder="Malformation of teeth">
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="ToothNumber" class="col-lg-4 col-form-label">Specify tooth No.</label>
+      <div class="col-lg-8" style="text-align: center;">
+        <input type="text" class="form-control" id="ToothNumber" placeholder="Specify tooth No.">
+      </div>
+    </div>
+    
+    <div>
+    </div>
+    
+    </div>
+     </div>
+    
+   
+    
+     
+    
+    
+    </div>
+    
+   <br>
+    <div class="form-group row">
+      <label  class="col-lg-6 col-form-label">&nbsp &nbsp 2. Inter-Arch</label>
+      
+    </div>
+    
+    
+    
+    <div id="Inter-Arch" class="row">
+    <div class=" col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    <div style="text-align: center; border-bottom:thin solid;  "  >Right</div>
+    <div class="row " >
+    <div class="col-6" ></div>
+    <div class="col-6" style="text-align: center;" > I  &nbsp&nbsp  II  &nbsp&nbsp III </div>
+    </div>
+     <div class="form-group row">
+      <label for="MolarRelation" class="col-6 col-form-label">Molar Relation</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="MolarRelation" id="MolarRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="MolarRelation" id="MolarRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="MolarRelation" id="MolarRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="CaninRelation" class="col-6 col-form-label">Canine Relation</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CaninRelation" id="CaninRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CaninRelation" id="CaninRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CaninRelation" id="CaninRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="CrossBite" class="col-6 col-form-label">Cross Bite</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CrossBite" id="CrossBite" value="1" checked>
+            Ant.
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CrossBite" id="CrossBite" value="2" >
+            Post.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CrossBite" id="CrossBite" value="3" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+     
+    
+    
+    
+    </div>
+     </div>
+    
+    <div class=" col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    <div style="text-align: center; border-bottom:thin solid;  "  >Left</div>
+    <div class="row " >
+    <div class="col-6" ></div>
+    <div class="col-6" style="text-align: center;" > I  &nbsp&nbsp  II  &nbsp&nbsp III </div>
+    </div>
+     <div class="form-group row">
+      <label for="MolarRelation" class="col-6 col-form-label">Molar Relation</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="MolarRelation" id="MolarRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="MolarRelation" id="MolarRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="MolarRelation" id="MolarRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="CaninRelation" class="col-6 col-form-label">Canine Relation</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CaninRelation" id="CaninRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CaninRelation" id="CaninRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CaninRelation" id="CaninRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="CrossBite" class="col-6 col-form-label">Cross Bite</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CrossBite" id="CrossBite" value="1" checked>
+            Ant.
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CrossBite" id="CrossBite" value="2" >
+            Post.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CrossBite" id="CrossBite" value="3" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+     
+    
+    
+    
+    </div>
+     </div>
+     </div>
+     
+    <div class="row" style="padding-top: 10px;" >
+     <div class="col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    
+    <div class="row " >
+    <div class="col-6" > Incisor Relation</div>
+    
+    </div>
+    <div style="padding-left: 50px;">
+   <div class="form-group row">
+      <label for="Proclined" class="col-4 col-form-label">i.&nbspProclined</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Proclined" id="Proclined" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Proclined" id="Proclined" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+   
+   <div class="form-group row" style="margin-top: -20px">
+      <label for="Retroclined" class="col-4 col-form-label">ii.&nbspRetroclined</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Retroclined" id="Retroclined" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Retroclined" id="Retroclined" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+   
+   <div class="form-group row" style="margin-top: -20px">
+      <label for="Overjet" class="col-4 col-form-label">iii.&nbspOverjet</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Overjet" id="Overjet" value="inc" checked>
+            Inc. 
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Overjet" id="Overjet" value="dec" >
+            Dec.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Overjet" id="Overjet" value="nor" >
+            Nor.
+          </label>
+          
+        </div>
+
+      </div>
+    </div>
+   
+   <div class="form-group row" style="margin-top: -20px">
+      <label for="Overbite" class="col-4 col-form-label">iii.&nbspOverbite</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Overbite" id="Overbite" value="inc" checked>
+            Inc. 
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Overbite" id="Overbite" value="dec" >
+            Dec.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Overbite" id="Overbite" value="nor" >
+            Nor.
+          </label>
+          
+        </div>
+
+      </div>
+    </div>
+     
+    
+    </div>
+    
+    
+    <div class="form-group row">
+      <label for="Midlines" class="col-4 col-form-label">Midlines</label>
+      <div class="col-8" >
+      <div class="row">
+        <div class="col-6" >
+        <div style="text-align: center;"><label >Upper</label></div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" name="MidlinesUpper" id="MidlinesUpper" value="Deviated" checked>
+            <span style="font-size:small;" >Deviated</span>
+          </label>
+        </div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" name="MidlinesUpper" id="MidlinesUpper" value="Normal" checked>
+            <span style="font-size:small;" >Normal</span>
+          </label>
+        </div>
+        
+        </div>
+        <div class="col-6" >
+        
+        <div style="text-align: center;"><label >Lower </label></div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" name="MidlinesLower" id="MidlinesLower" value="Deviated" checked>
+            <span style="font-size:small;" >Deviated</span>
+          </label>
+        </div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" name="MidlinesLower" id="MidlinesLower" value="Normal" checked>
+            <span style="font-size:small;" >Normal</span>
+          </label>
+        </div>
+        
+        </div>
+        </div>
+        <div class="row" style="padding-left: 20px;" >Specify (mm)<input class="form-control form-check-input" type="text" id="MidlinesSpecify" name="MidlinesSpecify" placeholder="mm"></div>
+      </div>
+    </div>
+    
+     
+    
+    
+    
+    </div>
+     </div>
+    </div>
+   
+    
+     
+    <br>
+    <div>
+    <div class="form-group row">
+      <label  class="col-lg-6 col-form-label">Other Clinical Conditions :</label>
+      
+    </div>
+    <div style="padding-left: 20px;">
+    	
+    <div class="form-group row">
+      <label for="DentalStructures" class="col-lg-6 col-form-label">I.	H/o Trauma to Face/Jaws/Dental Structures:  </label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="DentalStructures" id="DentalStructures" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="DentalStructures" id="DentalStructures" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+  
+    <div class="form-group row">
+      <label for="Gingival" class="col-lg-6 col-form-label">II.	Gingival status</label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Gingival" id="Gingival" value="Excellent" checked>
+            Excellent &nbsp &nbsp &nbsp   
+          </label>
+        
+        <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Gingival" id="Gingival" value="Good" >
+            Good &nbsp &nbsp &nbsp   
+          </label>
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Gingival" id="Gingival" value="Bad" >
+            Bad
+          </label>
+        </div>
+
+      </div>
+    </div>
+  
+    <div class="form-group row">
+      <label for="DentalTreatment" class="col-lg-6 col-form-label">III. H/o Dental Treatment</label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          
+            <input class="form-control form-check-input" type="text" name="DentalTreatment" id="DentalTreatment" placeholder="Dental Treatment">
+         
+        </div>
+
+      </div>
+    </div>
+  	
+  	<div class="form-group row">
+      <label for="SensitivityofTeeth" class="col-lg-6 col-form-label">IV.	Sensitivity of Teeth:</label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="SensitivityofTeeth" id="SensitivityofTeeth" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="SensitivityofTeeth" id="SensitivityofTeeth" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+  
+  	<div class="form-group row">
+      <label for="Anyothercondition" class="col-lg-6 col-form-label">Any other condition:</label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Anyothercondition" id="Anyothercondition" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Anyothercondition" id="Anyothercondition" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+  	
+  	<div class="form-group row">
+      <label for="Anyothercondition" class="col-lg-6 col-form-label">(Specify if yes)</label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          
+            <input class=" form-control form-check-input" type="text" name="Anyothercondition" id="Anyothercondition" placeholder="Any other condition" >
+             
+          
+        
+          
+        </div>
+
+      </div>
+    </div>
+  
+    
+    </div>
+    
+    </div>
+   
+    <div><label><b>SUGGESTED TREATMENT INSTRUCTIONS</b> </label></div>
+	<hr style="" >
+	
+   	<div id="Treatment">
+   	
+   	<div class="form-group row">
+      <label for="Treat" class="col-7 col-form-label" style="padding-left: 10%">a) Treat </label>
+      <div class="col-5">
+      	
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Treat" id="Treat" value="BothArches" checked>
+            Both Arches    
+          </label>
+        </div>
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Treat" id="Treat" value="UpperArch" >
+            Upper Arch  
+          </label>
+        </div> 
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Treat" id="Treat" value="LowerArch" >
+            Lower Arch
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="CorrectCrowdingby" class="col-7 col-form-label" style="padding-left: 10%">b)	Correct Crowding by</label>
+      <div class="col-5">
+      	
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CorrectCrowdingby" id="CorrectCrowdingby" value="Expansion" checked>
+            Expansion    
+          </label>
+        </div>
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CorrectCrowdingby" id="CorrectCrowdingby" value="Proclination" >
+            Proclination 
+          </label>
+        </div> 
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CorrectCrowdingby" id="CorrectCrowdingby" value="IPR" >
+             IPR
+          </label>
+        </div>
+        <div class="form-check row" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CorrectCrowdingby" id="CorrectCrowdingby" value="Extraction" >
+             Extraction(Specify)
+             <input class="form-control"  type="text" id="ExtractionSpecify" name="ExtractionSpecify">
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+   	<div class="form-group row">
+      <label for="CorrectSpacing" class="col-7 col-form-label" style="padding-left: 10%">c)	Correct Spacing	</label>
+      <div class="col-5">
+      	
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CorrectSpacing" id="CorrectSpacing" value="CloseAllSpaces" checked>
+            Close all Spaces.    
+          </label>
+        </div>
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CorrectSpacing" id="CorrectSpacing" value="RedistributeSpaces" >
+            Redistribute Spaces.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="CorrectRotation" class="col-7 col-form-label" style="padding-left: 10%">d)	Correct Rotation </label>
+      <div class="col-5">
+      	
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CorrectRotation" id="CorrectRotation" value="Anterior" checked>
+            Anterior.    
+          </label>
+        </div>
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="CorrectRotation" id="CorrectRotation" value="Posterior" >
+            Posterior.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="ArchFormCorrection" class="col-7 col-form-label" style="padding-left: 10%">e) Arch Form</label>
+      <div class="col-5">
+      	
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="ArchFormCorrection" id="ArchFormCorrection" value="Maintain" checked>
+            Maintain.    
+          </label>
+        </div>
+        <div class="form-check row">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="ArchFormCorrection" id="ArchFormCorrection" value="Improve" >
+            Improve.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+   	
+   	</div>
+   
+    
+    
+    </div>
+   
+	</form>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

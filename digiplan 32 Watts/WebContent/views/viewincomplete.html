@@ -1,0 +1,97 @@
+<link rel="stylesheet" type="text/css" href="CSS/tableanimation.css">
+<link href="CSS/font-awesome.css" rel="stylesheet" />
+
+
+
+<div style="margin-top: 0px;" ng-init="viewincomplete();" >
+<div class="row" >
+<div class="col-lg-2 col-1 " > </div>
+<div class="col-lg-8 col-10" >
+<div style="text-align: center;" ng-show="incompletedates.length==0;">No Case initiated.</div>
+<div class="row " ng-show="incompletedates.length!=0;" ><span class="col-lg-1"></span>
+<label class="col-lg-2" style="    margin-top: 7px;"><b>Search : </b>  </label>
+<div class="col-lg-4" >
+ <input type="text" placeholder="patientname"  ng-model="searchKeywordPatientName"  class=" form-control form-control-sm" >&nbsp&nbsp
+</div><div class="col-lg-4" >
+<input type="text" placeholder="Form ID" ng-model="searchKeywordSerialNumber" pattern="[0-9]+" class="form-control form-control-sm" >
+</div>
+</div><br>
+
+
+<div class="modal fade" id="createcasemodal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        <h4 class="modal-title">Create Case Id </h4>
+          <button style="padding:20px" type="button" class="close" data-dismiss="modal">X</button>
+         
+        </div>
+        <form>
+        <div class="modal-body form-group" >
+        		
+        		<label>Form Id </label>
+        		
+				<input type="text" name="form_id1" disabled   ng-model="formdata.formid" class="form-control" placeholder="Case Id">
+			
+        		
+        		<label>Enter Case Id </label>
+        		
+				<input ng-required="true" pattern="[0-9]{10}" type="text" name="case_id"  ng-model="formdata.createcaseid" class="form-control" placeholder="Case Id">
+			
+        </div>
+        
+      
+        
+        <div class="modal-footer">
+           <div class="loader" id="loader" style="display:none"></div>
+          <button type="" class="btn btn-danger" ng-click="createcasejava()">create</button>
+        </div >
+        
+       
+        <div  class="modal-body form-group" id="alreadyexists">
+        <span style="color:red">Case Id Already Exists</span>
+        		
+        </div>
+        </form>
+        
+      </div>
+      
+    </div>
+  </div>
+
+
+
+<div class="" style="overflow-x: scroll;  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.85);">
+<table   ng-show="incompletedates.length!=0;" class="table table-hover " style="background-color: white; width:  ">
+  <thead class="" style="background-color: rgba(174, 193, 236, 0.47);">
+    <tr>
+      <th  style="text-align: center;">Form id</th>
+        <th  style="text-align: center;">Date</th>
+    
+      <th style="text-align: center;">Patient Name</th>
+      <th style="text-align: center;">Doctor Name</th>
+     
+      <th style="text-align: center;">Email</th>
+      <th style="text-align: center;">create Case</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr  style="cursor:pointer" class="" ng-repeat="x in incompletedates  |  filter:{'PatientName':  searchKeywordPatientName} | filter: {'formid' : searchKeywordSerialNumber}" >
+      <th ng-click="loadform1(x.formid); "  style="text-align: center;">{{x.formid}}</th>
+       <td ng-click="loadform1(x.formid); " align="center" >{{x.submittedon}}</td>
+     <td ng-click="loadform1(x.formid); " align="center" >{{x.PatientName}}</td>
+      <td ng-click="loadform1(x.formid); " align="center" >{{x.submittedby}}</td>
+      <td ng-click="loadform1(x.formid); " align="center" >{{x.email}}</td>
+      <td align="center" ><button class="btn btn-link" id="{{x.serialnumber}}"  ng-click="createcase(x.formid)">CREATE CASE</button>  </td>
+	 </tr>
+  </tbody>
+</table>
+</div>
+
+ </div>
+<div class="col-lg-2"> </div>
+</div>
+</div>

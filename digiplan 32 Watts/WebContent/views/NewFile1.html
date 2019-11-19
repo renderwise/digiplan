@@ -1,0 +1,1064 @@
+
+
+<div id="sendtobackend" >
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+
+<div class="container">
+
+<div class="row" >
+
+
+<div class="col-lg-3" > </div>
+
+</div>
+
+<div class="row" >
+
+<div class="col-lg-2" ></div>
+<div  class="col-md-12 col-sm-12  col-lg-8 " style="    border-radius: 10px;
+    border: 2.5px solid rgba(0, 0, 0, 0.41);
+    padding: 20px; box-shadow: 0px 0px 20px 1px;     background-color: ghostwhite;" >
+<div style="text-align: center;">
+<img alt="Alignwise" src="image/alignwise.png" width="60%" >
+<br><br>
+<label><b><h3 style="
+    text-shadow: 2px 2px 18px grey;
+">PATIENT PRESCRIPTION FORM </h3> </b> </label>
+</div>
+  <form id="form1" ng-submit="dosubmit(); ">
+ 	
+<fieldset  ng-disabled="formdisable">
+  <div style="background-color: #c0f9f9; padding: 20px;">
+  	<div style="text-align: right;" class="form-group row">
+  		<div class="col-4"></div>
+      <label for="Date" class="col-4 col-form-label">Date</label>
+      <div class="col-4">
+        <input type="date" name="date" value="{{formdata.date}}" ng-disabled="true" class="form-control" id="Date" >
+      </div>
+    </div> 
+  <div><label><b>BASIC INFORMATION</b> </label></div>
+	<hr style="" >
+    <div class="form-group row">
+      <label for="DoctorName" class="col-lg-4 col-form-label">Doctor's Name</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" ng-model="formdata.DoctorName"   value="{{formdata.DoctorName}}" name="DoctorName" id="DoctorName" placeholder="Doctor Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="ClinicAddress" class="col-lg-4 col-form-label">Clinic Address</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" ng-model="formdata.ClinicAddress" value="{{formdata.ClinicAddress}}" id="ClinicAddress" placeholder="Clinic Address">
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="PatientName" class="col-lg-4 col-form-label">Patient Name</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" ng-model="formdata.PatientName" value="{{formdata.PatientName}}" id="PatientName" placeholder="Patient Name">
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="Gender" class="col-lg-4 col-form-label">Gender</label>
+      <div class="col-lg-8">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Gender"  name="Gender" id="Gender" value="Male"  ng-checked="formdata.Gender=='Male'">
+            Male &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Gender" name="Gender" id="Gender" value="Female" ng-checked="formdata.Gender=='Female'" >
+            Female
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    
+    <div class="form-group row">
+      <label for="DOB" class="col-lg-4 col-form-label">Date Of Birth</label>
+      <div class="col-lg-8">
+        <input type="date" on class="form-control" ng-model="formdata.DOB"  ng-blur="calculateage();" max="{{formdata.date}}" id="DOB" value="{{formdata.DOB}}" >
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <label for="Age" class="col-lg-4 col-form-label">Age</label>
+      <div class="col-lg-8">
+        <input type="text" ng-disabled="true" ng-model="formdata.Age" value="{{formdata.Age}}" class="form-control" id="Age" placeholder="Age">
+      </div>
+    </div>
+    
+
+  <div><label><b>CLINICAL DATA</b> </label></div>
+	<hr style="" >
+	
+    <div class="form-group row">
+      <label for="ChiefComplaint" class="col-lg-4 col-form-label">Chief Complaint</label>
+      <div class="col-lg-8">
+        <textarea class="form-control" id="ChiefComplaint"  ng-model="formdata.ChiefComplaint" placeholder="ChiefComplaint">{{formdata.ChiefComplaint}}</textarea>
+      </div>
+    </div>
+    <br>
+    <div class="form-group row">
+      <label  class="col-lg-6 col-form-label">Clinical Examination :</label>
+      
+    </div>
+    <div class="form-group row">
+      <label  class="col-lg-6 col-form-label">&nbsp &nbsp 1. Intra-Arch</label>
+      
+    </div>
+    
+    
+    
+    <div id="Intra-Arch" class="row">
+    <div class=" col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    <div style="text-align: center; border-bottom:thin solid;  "  >Upper</div>
+    <br>
+     <div class="form-group row" style="margin-top: -20px">
+      <label for="Crowding" class="col-4 col-form-label">Crowding</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Crowding" ng-checked="formdata.Crowding=='Yes'" name="Crowding" id="Crowding" value="Yes" >
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Crowding" ng-checked="formdata.Crowding=='No'" name="Crowding" id="Crowding" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: -20px">
+      <label for="Spacing" class="col-4 col-form-label">Spacing</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Spacing" ng-checked="formdata.Spacing=='Yes'" name="Spacing" id="Spacing" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Spacing"  ng-checked="formdata.Spacing=='No'"  name="Spacing" id="Spacing" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+      <div class="form-group row" style="margin-top: -20px">
+      <label for="Rotation" class="col-4 col-form-label">Rotation</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Rotation"  ng-checked="formdata.Rotation=='Yes'"  name="Rotation" id="Rotation" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Rotation" ng-checked="formdata.Rotation=='No'" name="Rotation" id="Rotation" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+      <div class="form-group row" style="margin-top: -20px">
+      <label for="ArchForm" class="col-4 col-form-label">Arch Form</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          
+          <label class="form-check-label" style="font-size: small;" >
+            <input class="form-check-input" type="radio" ng-model="formdata.ArchForm"  ng-checked="formdata.ArchForm=='Narrow'" name="ArchForm" id="ArchForm" value="Narrow" >
+            Narrow  
+          </label>
+          
+          <label class="form-check-label" style="font-size: small;"  >
+            <input class="form-check-input" type="radio" ng-model="formdata.ArchForm" ng-checked="formdata.ArchForm=='Wide'" name="ArchForm" id="ArchForm" value="Wide" >
+            Wide 
+          </label>
+          
+          
+          <label class="form-check-label" style="font-size: small;"  >
+            <input class="form-check-input" type="radio" ng-model="formdata.ArchForm"  ng-checked="formdata.ArchForm=='Normal'" name="ArchForm" id="ArchForm" value="Normal" >
+            Normal  
+          </label>
+        
+        
+          
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -20px">
+      <label for="MalformationOfTeeth" class="col-lg-4 col-form-label">Malformation of teeth</label>
+      <div class="col-lg-8" style="text-align: center;">
+        <input type="text" class="form-control" value="{{formdata.MalformationOfTeeth}}" ng-model="formdata.MalformationOfTeeth" id="MalformationOfTeeth" placeholder="Malformation of teeth">
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -20px">
+      <label for="ToothNumber" class="col-lg-4 col-form-label">Specify tooth No.</label>
+      <div class="col-lg-8" style="text-align: center;">
+        <input type="text" class="form-control" value="{{formdata.ToothNumber}}" ng-model="formdata.ToothNumber" id="ToothNumber" placeholder="Specify tooth No.">
+      </div>
+    </div>
+    
+    
+    
+    </div>
+     </div>
+    
+     <div class=" col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    <div style="text-align: center; border-bottom:thin solid;  "  >Lower</div>
+    <br>
+     <div class="form-group row" style="margin-top: -20px">
+      <label for="Crowding" class="col-4 col-form-label">Crowding</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LCrowding" ng-checked="formdata.LCrowding=='Yes'" name="LCrowding" id="LCrowding" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LCrowding" ng-checked="formdata.LCrowding=='No'" name="LCrowding" id="LCrowding" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: -20px">
+      <label for="Spacing" class="col-4 col-form-label">Spacing</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LSpacing" ng-checked="formdata.LSpacing=='Yes'" name="LSpacing" id="LSpacing" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LSpacing" ng-checked="formdata.LSpacing=='No'" name="LSpacing" id="LSpacing" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+      <div class="form-group row" style="margin-top: -20px">
+      <label for="Rotation" class="col-4 col-form-label">Rotation</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio"  ng-model="formdata.LRotation" ng-checked="formdata.LRotation=='Yes'" name="LRotation" id="LRotation" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LRotation"  ng-checked="formdata.LRotation=='No'" name="LRotation" id="LRotation" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+      <div class="form-group row" style="margin-top: -20px">
+      <label for="ArchForm" class="col-4 col-form-label">Arch Form</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;">
+        <div class="form-check">
+          
+          <label class="form-check-label" style="font-size: small;"  >
+            <input class="form-check-input" type="radio" ng-model="formdata.LArchForm"  ng-checked="formdata.LArchForm=='Narrow'" name="LArchForm" id="LArchForm" value="Narrow" >
+            Narrow   
+          </label>
+        	
+          
+           <label class="form-check-label" style="font-size: small;"  >
+            <input class="form-check-input" type="radio" ng-model="formdata.LArchForm"  ng-checked="formdata.LArchForm=='Wide'" name="LArchForm" id="LArchForm" value="Wide" >
+            Wide   
+          </label>
+          
+          
+          <label class="form-check-label" style="font-size: small;"  >
+            <input class="form-check-input" type="radio" ng-model="formdata.LArchForm"  ng-checked="formdata.LArchForm=='Normal'" name="LArchForm" id="LArchForm" value="Normal" >
+            Normal   
+          </label>
+        	
+        
+         
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -20px">
+      <label for="MalformationOfTeeth" class="col-lg-4 col-form-label">Malformation of teeth</label>
+      <div class="col-lg-8" style="text-align: center;">
+        <input type="text" class="form-control" value="{{formdata.LMalformationOfTeeth}}" ng-model="formdata.LMalformationOfTeeth" id="LMalformationOfTeeth" placeholder="Malformation of teeth">
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -20px">
+      <label for="ToothNumber" class="col-lg-4 col-form-label">Specify tooth No.</label>
+      <div class="col-lg-8" style="text-align: center;">
+        <input type="text" class="form-control" value="{{formdata.LToothNumber}}" ng-model="formdata.LToothNumber" id="LToothNumber" placeholder="Specify tooth No.">
+      </div>
+    </div>
+    
+    
+    
+    </div>
+     </div>
+    
+   
+    <!-- ngmodel
+     --> 
+    
+    
+    </div>
+    
+   <br>
+    <div class="form-group row">
+      <label  class="col-lg-6 col-form-label">&nbsp &nbsp 2. Inter-Arch</label>
+      
+    </div>
+    
+    
+    
+    <div id="Inter-Arch" class="row">
+    <div class=" col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    <div style="text-align: center; border-bottom:thin solid;  "  >Right</div>
+    <div class="row " >
+    <div class="col-6" ></div>
+    <div class="col-6" style="text-align: center;" > I  &nbsp&nbsp  II  &nbsp&nbsp III </div>
+    </div>
+     <div class="form-group row" >
+      <label for="MolarRelation" class="col-6 col-form-label">Molar Relation</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.MolarRelation"  ng-checked="formdata.MolarRelation=='1'" name="MolarRelation" id="MolarRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.MolarRelation" ng-checked="formdata.MolarRelation=='2'" name="MolarRelation" id="MolarRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.MolarRelation" ng-checked="formdata.MolarRelation=='3'" name="MolarRelation" id="MolarRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -20px;">
+      <label for="CaninRelation" class="col-6 col-form-label">Canine Relation</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.CaninRelation" ng-checked="formdata.CaninRelation=='1'" name="CaninRelation" id="CaninRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.CaninRelation" ng-checked="formdata.CaninRelation=='2'" name="CaninRelation" id="CaninRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.CaninRelation" ng-checked="formdata.CaninRelation=='3'" name="CaninRelation" id="CaninRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row"  style="margin-top: -20px;  margin-bottom: -10px;">
+      <label for="CrossBite" class="col-6 col-form-label">Cross Bite</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.CrossBite" ng-checked="formdata.CrossBite=='1'" name="CrossBite" id="CrossBite" value="1" checked>
+            Ant.
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.CrossBite" ng-checked="formdata.CrossBite=='2'" name="CrossBite" id="CrossBite" value="2" >
+            Post.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.CrossBite" ng-checked="formdata.CrossBite=='3'" name="CrossBite" id="CrossBite" value="3" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+     
+    
+    
+    
+    </div>
+     </div>
+    
+    <div class=" col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    <div style="text-align: center; border-bottom:thin solid;  "  >Left</div>
+    <div class="row " >
+    <div class="col-6" ></div>
+    <div class="col-6" style="text-align: center;" > I  &nbsp&nbsp  II  &nbsp&nbsp III </div>
+    </div>
+     <div class="form-group row" >
+      <label for="LMolarRelation" class="col-6 col-form-label">Molar Relation</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LMolarRelation" ng-checked="formdata.LMolarRelation=='1'" name="LMolarRelation" id="LMolarRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LMolarRelation" ng-checked="formdata.LMolarRelation=='2'" name="LMolarRelation" id="LMolarRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LMolarRelation" ng-checked="formdata.LMolarRelation=='3'" name="LMolarRelation" id="LMolarRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -20px;">
+      <label for="LCaninRelation" class="col-6 col-form-label">Canine Relation</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio"  ng-model="formdata.LCaninRelation" ng-checked="formdata.LCaninRelation=='1'" name="LCaninRelation" id="LCaninRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LCaninRelation" ng-checked="formdata.LCaninRelation=='2'" name="LCaninRelation" id="LCaninRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LCaninRelation" ng-checked="formdata.LCaninRelation=='3'" name="LCaninRelation" id="LCaninRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -20px; margin-bottom: -10px;">
+      <label for="LCrossBite" class="col-6 col-form-label">Cross Bite</label>
+      <div class="col-6" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LCrossBite" ng-checked="formdata.LCrossBite=='1'" name="LCrossBite" id="LCrossBite" value="1" checked>
+            Ant.
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LCrossBite"  ng-checked="formdata.LCrossBite=='2'" name="LCrossBite" id="LCrossBite" value="2" >
+            Post.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.LCrossBite"  ng-checked="formdata.LCrossBite=='3'" name="LCrossBite" id="LCrossBite" value="3" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+     
+    
+    
+    
+    </div>
+     </div>
+     </div>
+     
+    <div class="row" style="padding-top: 10px;" >
+     <div class="col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    
+    <div class="row " >
+    <div class="col-6" > Incisor Relation</div>
+    
+    </div>
+    <div style="padding-left: 50px;">
+   <div class="form-group row">
+      <label for="Proclined" class="col-4 col-form-label">i.&nbspProclined</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Proclined"  ng-checked="formdata.Proclined=='Yes'" name="Proclined" id="Proclined" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Proclined" ng-checked="formdata.Proclined=='No'" name="Proclined" id="Proclined" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+   
+   <div class="form-group row" style="margin-top: -20px">
+      <label for="Retroclined" class="col-4 col-form-label">ii.&nbspRetroclined</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Retroclined" ng-checked="formdata.Retroclined=='Yes'" name="Retroclined" id="Retroclined" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Retroclined" ng-checked="formdata.Retroclined=='No'" name="Retroclined" id="Retroclined" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+   
+   <div class="form-group row" style="margin-top: -20px">
+      <label for="Overjet" class="col-4 col-form-label">iii.&nbspOverjet</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Overjet" ng-checked="formdata.Overjet=='inc'" name="Overjet" id="Overjet" value="inc" checked>
+            Inc. 
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Overjet"  ng-checked="formdata.Overjet=='dec'" name="Overjet" id="Overjet" value="dec" >
+            Dec.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Overjet" ng-checked="formdata.Overjet=='nor'" name="Overjet" id="Overjet" value="nor" >
+            Nor.
+          </label>
+          
+        </div>
+
+      </div>
+    </div>
+   
+   <div class="form-group row" style="margin-top: -20px">
+      <label for="Overbite" class="col-4 col-form-label">iii.&nbspOverbite</label>
+      <div class="col-8" style="padding-top: 6px; text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Overbite" ng-checked="formdata.Overbite=='inc'" name="Overbite" id="Overbite" value="inc" checked>
+            Inc. 
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Overbite" ng-checked="formdata.Overbite=='dec'" name="Overbite" id="Overbite" value="dec" >
+            Dec.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-model="formdata.Overbite" ng-checked="formdata.Overbite=='nor'" name="Overbite" id="Overbite" value="nor" >
+            Nor.
+          </label>
+          
+        </div>
+
+      </div>
+    </div>
+     
+    
+    </div>
+    
+    
+    <div class="form-group row">
+      <label for="Midlines" class="col-4 col-form-label">Midlines</label>
+      <div class="col-8" >
+      <div class="row">
+        <div class="col-6" >
+        <div style="text-align: center;"><label >Upper</label></div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" ng-model="formdata.MidlinesUpper" ng-checked="formdata.MidlinesUpper=='Deviated'" name="MidlinesUpper" id="MidlinesUpper" value="Deviated" checked>
+            <span style="font-size:small;" >Deviated</span>
+          </label>
+        </div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" ng-model="formdata.MidlinesUpper"  ng-checked="formdata.MidlinesUpper=='Normal'" name="MidlinesUpper" id="MidlinesUpper" value="Normal" checked>
+            <span style="font-size:small;" >Normal</span>
+          </label>
+        </div>
+        
+        </div>
+        <div class="col-6" >
+        
+        <div style="text-align: center;"><label >Lower </label></div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" ng-model="formdata.MidlinesLower"  ng-checked="formdata.MidlinesLower=='Deviated'" name="MidlinesLower" id="MidlinesLower" value="Deviated" checked>
+            <span style="font-size:small;" >Deviated</span>
+          </label>
+        </div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" ng-model="formdata.MidlinesLower"  ng-checked="formdata.MidlinesLower=='Normal'" name="MidlinesLower" id="MidlinesLower" value="Normal" checked>
+            <span style="font-size:small;" >Normal</span>
+          </label>
+        </div>
+        
+        </div>
+        </div>
+        <div class="row" style="padding-left: 20px;" >Specify (mm)<input class="form-control form-check-input" value="{{formdata.MidlinesSpecify}}" ng-model="formdata.MidlinesSpecify" type="text" id="MidlinesSpecify" name="MidlinesSpecify" placeholder="mm"></div>
+      </div>
+    </div>
+    
+     
+    
+    
+    
+    </div>
+     </div>
+    </div>
+   
+    
+     
+    <br>
+    <div>
+    <div class="form-group row">
+      <label  class="col-lg-6 col-form-label">Other Clinical Conditions :</label>
+      
+    </div>
+    <div style="padding-left: 20px;">
+    	
+    <div class="form-group row" style="margin-top: -15px;">
+      <label for="DentalStructures" class="col-lg-6 col-form-label">I.	H/o Trauma to Face/Jaws/Dental Structures:  </label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="DentalStructures"   ng-checked="formdata.DentalStructures=='Yes'"   ng-model="formdata.DentalStructures" id="DentalStructures" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="DentalStructures" ng-model="formdata.DentalStructures" ng-checked="formdata.DentalStructures=='No'"  id="DentalStructures" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+  
+    <div class="form-group row" style="margin-top: -15px;">
+      <label for="Gingival" class="col-lg-6 col-form-label">II.	Gingival status</label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Gingival" ng-model="formdata.Gingival" ng-checked="formdata.Gingival=='Excellent'"  id="Gingival" value="Excellent" >
+            Excellent &nbsp &nbsp &nbsp   
+          </label>
+        
+        <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Gingival" ng-model="formdata.Gingival" ng-checked="formdata.Gingival=='Good'" id="Gingival" value="Good" >
+            Good &nbsp &nbsp &nbsp   
+          </label>
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Gingival" ng-model="formdata.Gingival" ng-checked="formdata.Gingival=='Bad'" id="Gingival" value="Bad" >
+            Bad
+          </label>
+        </div>
+
+      </div>
+    </div>
+  
+    <div class="form-group row" style="margin-top: -15px;">
+      <label for="DentalTreatment" class="col-lg-6 col-form-label">III. H/o Dental Treatment</label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          
+            <input class="form-control form-check-input" type="text" name="DentalTreatment" value="{{formdata.DentalTreatment}}" ng-model="formdata.DentalTreatment" id="DentalTreatment" placeholder="Dental Treatment">
+         
+        </div>
+
+      </div>
+    </div>
+  	
+  	<div class="form-group row" style="margin-top: -15px;">
+      <label for="SensitivityofTeeth" class="col-lg-6 col-form-label">IV.	Sensitivity of Teeth:</label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="SensitivityofTeeth" ng-model="formdata.SensitivityofTeeth" ng-checked="formdata.SensitivityofTeeth=='Yes'" id="SensitivityofTeeth" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="SensitivityofTeeth" ng-model="formdata.SensitivityofTeeth" ng-checked="formdata.SensitivityofTeeth=='No'" id="SensitivityofTeeth" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+  
+  	<div class="form-group row" style="margin-top: -15px;">
+      <label for="Anyothercondition" class="col-lg-6 col-form-label">Any other condition:</label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Anyotherconditionradio" ng-model="formdata.Anyotherconditionradio" ng-checked="formdata.Anyotherconditionradio=='Yes'" id="Anyothercondition" value="Yes" >
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="Anyotherconditionradio" ng-model="formdata.Anyotherconditionradio" ng-checked="formdata.Anyotherconditionradio=='No'" id="Anyothercondition" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+  	
+  	<div class="form-group row" style="margin-top: -15px;" ng-show="formdata.Anyotherconditionradio=='Yes'"" >
+      <label for="Anyothercondition" class="col-lg-6 col-form-label">(Specify if yes)</label>
+      <div class="col-lg-6">
+        <div class="form-check">
+          
+            <input class=" form-control form-check-input" type="text"  value="{{formdata.Anyothercondition}}" name="Anyothercondition" ng-model="formdata.Anyothercondition" id="Anyothercondition" placeholder="Any other condition" >
+             
+          
+        
+          
+        </div>
+
+      </div>
+    </div>
+  
+    
+    </div>
+    
+    </div>
+   
+    <div><label><b>SUGGESTED TREATMENT INSTRUCTIONS</b> </label></div>
+	<hr style="" >
+	
+   	<div id="Treatment">
+   	
+   	<div class="form-group ">
+      <label for="Treat" class="col-7 col-form-label" >a) Treat </label>
+      <div class="col-12" style=" margin-left: 10%;" >
+      	
+        <div class="form-check row" >
+          <label class="form-check-label col-3 ">
+            <input class="form-check-input" type="radio" ng-model="formdata.Treat" ng-checked="formdata.Treat=='BothArches'" name="Treat" id="Treat" value="BothArches" checked>
+            Both Arches    
+          </label>
+        
+       
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.Treat" ng-checked="formdata.Treat=='UpperArch'" name="Treat" id="Treat" value="UpperArch" >
+            Upper Arch  
+          </label>
+        
+        
+          <label class="form-check-label col-3 ">
+            <input class="form-check-input" type="radio" ng-model="formdata.Treat" ng-checked="formdata.Treat=='LowerArch'" name="Treat" id="Treat" value="LowerArch" >
+            Lower Arch
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group ">
+      <label for="CorrectCrowdingby" class="col-7 col-form-label" >b)	Correct Crowding by</label>
+      <div class="col-12" style="margin-left: 10%;">
+      	
+        <div class="form-check row">
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.CorrectCrowdingby" ng-checked="formdata.CorrectCrowdingby=='Expansion'"  name="CorrectCrowdingby" id="CorrectCrowdingby" value="Expansion" >
+            Expansion    
+          </label>
+        
+        
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.CorrectCrowdingby" ng-checked="formdata.CorrectCrowdingby=='Proclination'"  name="CorrectCrowdingby" id="CorrectCrowdingby" value="Proclination" >
+            Proclination 
+          </label>
+       
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.CorrectCrowdingby" ng-checked="formdata.CorrectCrowdingby=='IPR'"  name="CorrectCrowdingby" id="CorrectCrowdingby" value="IPR" >
+             IPR
+          </label>
+        
+          <label style="width: 100%" class="form-check-label col-11">
+            <input class="form-check-input" type="radio" ng-model="formdata.CorrectCrowdingby" ng-checked="formdata.CorrectCrowdingby=='Extraction'" name="CorrectCrowdingby" id="CorrectCrowdingby" value="Extraction" >
+             Extraction (Specify)
+             <input class="form-control" ng-show="formdata.CorrectCrowdingby=='Extraction'" type="text" value="{{formdata.ExtractionSpecify}}" ng-model="formdata.ExtractionSpecify" id="ExtractionSpecify" name="ExtractionSpecify">
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+   	<div class="form-group ">
+      <label for="CorrectSpacing" class="col-7 col-form-label">c)	Correct Spacing	</label>
+      <div class="col-12" style="margin-left: 10%">
+      	
+        <div class="form-check row"   >
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.CorrectSpacing" ng-checked="formdata.CorrectSpacing=='CloseAllSpaces'"  name="CorrectSpacing" id="CorrectSpacing" value="CloseAllSpaces" >
+            Close all Spaces.    
+          </label>
+       
+          <label class="form-check-label col-5">
+            <input class="form-check-input" type="radio" ng-model="formdata.CorrectSpacing" ng-checked="formdata.CorrectSpacing=='RedistributeSpaces'" name="CorrectSpacing" id="CorrectSpacing" value="RedistributeSpaces" >
+            Redistribute Spaces.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+    <div class="form-group ">
+      <label for="CorrectRotation" class="col-7 col-form-label" >d)	Correct Rotation </label>
+      <div class="col-12" style="margin-left: 10%">
+      	
+        <div class="form-check row" >
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.CorrectRotation" ng-checked="formdata.CorrectRotation=='Anterior'" name="CorrectRotation" id="CorrectRotation" value="Anterior" >
+            Anterior.    
+          </label>
+        
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.CorrectRotation"  ng-checked="formdata.CorrectRotation=='Posterior'" name="CorrectRotation" id="CorrectRotation" value="Posterior" >
+            Posterior.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+    <div class="form-group ">
+      <label for="ArchFormCorrection" class="col-7 col-form-label" >e) Arch Form</label>
+      <div class="col-12" style="margin-left: 10%;">
+      	
+        <div class="form-check row ">
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.ArchFormCorrection"  ng-checked="formdata.ArchFormCorrection=='Maintain'" name="ArchFormCorrection" id="ArchFormCorrection" value="Maintain" checked>
+            Maintain.    
+          </label>
+        
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.ArchFormCorrection" ng-checked="formdata.ArchFormCorrection=='Improve'" name="ArchFormCorrection" id="ArchFormCorrection" value="Improve" >
+            Improve.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+       	
+   	<div class="form-group ">
+      <label for="OverJetCorrection" class="col-7 col-form-label" >f) Overjet</label>
+      <div class="col-12"style="margin-left: 10%" >
+      	
+        <div class="form-check row">
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.OverJetCorrection" ng-checked="formdata.OverJetCorrection=='Maintain'"  name="OverJetCorrection" id="OverJetCorrection" value="Maintain" checked>
+            Maintain.    
+          </label>
+        
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.OverJetCorrection" ng-checked="formdata.OverJetCorrection=='Correct'"  name="OverJetCorrection" id="OverJetCorrection" value="Correct" >
+            Correct.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+    
+    <div class="form-group ">
+      <label for="OverbiteCorrection" class="col-7 col-form-label" >g) Overbite</label>
+      <div class="col-12" style="margin-left: 10%;">
+      	
+        <div class="form-check row">
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.OverbiteCorrection"  ng-checked="formdata.OverbiteCorrection=='Maintain'" name="OverbiteCorrection" id="OverbiteCorrection" value="Maintain" >
+            Maintain.    
+          </label>
+        
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.OverbiteCorrection" ng-checked="formdata.OverbiteCorrection=='Correct'" name="OverbiteCorrection" id="OverbiteCorrection" value="Correct" >
+            Correct.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+   	
+   	 
+    <div class="form-group ">
+      <label for="PosteriorCrossBiteCorrection" class="col-7 col-form-label" >h) Posterior Cross Bite</label>
+      <div class="col-12" style="margin-left: 10%">
+      	
+        <div class="form-check row">
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.PosteriorCrossBiteCorrection" ng-checked="formdata.PosteriorCrossBiteCorrection=='Maintain'" name="PosteriorCrossBiteCorrection" id="PosteriorCrossBiteCorrection" value="Maintain" checked>
+            Maintain.    
+          </label>
+        
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.PosteriorCrossBiteCorrection" ng-checked="formdata.PosteriorCrossBiteCorrection=='Correct'" name="PosteriorCrossBiteCorrection" id="PosteriorCrossBiteCorrection" value="Correct" >
+            Correct.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+   	
+   	 <div class="form-group ">
+      <label for="CanineRelationCorrection" class="col-7 col-form-label" >i) Canine Relation</label>
+      <div class="col-12" style="margin-left: 10%">
+      	
+        <div class="form-check row">
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.CanineRelationCorrection" ng-checked="formdata.CanineRelationCorrection=='Maintain'" name="CanineRelationCorrection" id="CanineRelationCorrection" value="Maintain" checked>
+            Maintain.    
+          </label>
+       
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.CanineRelationCorrection" ng-checked="formdata.CanineRelationCorrection=='Improve'" name="CanineRelationCorrection" id="CanineRelationCorrection" value="Improve" >
+            Improve.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+    
+     <div class="form-group ">
+      <label for="MolarRelationCorrection" class="col-7 col-form-label">i) Molar Relation</label>
+      <div class="col-12"  style="margin-left: 10%">
+      	
+        <div class="form-check row">
+          <label class="form-check-label col-3 ">
+            <input class="form-check-input" type="radio" ng-model="formdata.MolarRelationCorrection" ng-checked="formdata.MolarRelationCorrection=='Maintain'" name="MolarRelationCorrection" id="MolarRelationCorrection" value="Maintain" >
+            Maintain.    
+          </label>
+        
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.MolarRelationCorrection"  ng-checked="formdata.MolarRelationCorrection=='Improve'" name="MolarRelationCorrection" id="MolarRelationCorrection" value="Improve" >
+            Improve.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+    
+    <div class="form-group ">
+      <label for="IncisorRelationCorrection" class="col-7 col-form-label" >h) Incisor Relation</label>
+      <div class="col-12" style="margin-left: 10%">
+      	
+        <div class="form-check row">
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.IncisorRelationCorrection" ng-checked="formdata.IncisorRelationCorrection=='Maintain'" name="IncisorRelationCorrection" id="IncisorRelationCorrection" value="Maintain" >
+            Maintain.    
+          </label>
+        
+          <label class="form-check-label col-3">
+            <input class="form-check-input" type="radio" ng-model="formdata.IncisorRelationCorrection" ng-checked="formdata.IncisorRelationCorrection=='Improve'" name="IncisorRelationCorrection" id="IncisorRelationCorrection" value="Improve" >
+            Improve.  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+      <div class="form-group row container">
+      <label  for="SpecialInstruction"  class="col-lg-5 col-form-label">Special Instruction</label>
+      <div class="col-lg-7 form-check roe">
+        <input type="text" class="form-control form-check-input" value="{{formdata.SpecialInstruction}}" ng-model="formdata.SpecialInstruction" name="SpecialInstruction" id="SpecialInstruction" placeholder="Special Instruction">
+      </div>
+    </div>
+  
+   	
+   	</div>
+   
+    
+    
+    </div>
+    
+   	<div style="text-align: center;  background-color: #deffff; padding-bottom: 20px; display: {{showsubmit}}; "  ><button class="btn btn-primary" type="submit" >Submit</button></div>
+	</fieldset>
+	</form>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,51 @@
+<link rel="stylesheet" type="text/css" href="CSS/tableanimation.css">
+<link href="CSS/font-awesome.css" rel="stylesheet" />
+<div style="margin-top: 20px;" ng-init="fetchpreviousdates();" >
+<div class="row" >
+<div class="col-lg-2 col-1" > </div>
+<div class="col-lg-8 col-10" >
+<div style="text-align: center;" ng-if="previousdates=={};">No Case initiated.</div>
+
+
+<div class="row " ng-show="previousdates.length!=0;" ><span class="col-lg-1"></span>
+<label class="col-lg-2" style="    margin-top: 7px;"><b>Search : </b>  </label>
+<div class="col-lg-4" >
+ <input type="text" placeholder="Patient Name"  ng-model="searchKeywordPatientName" class=" form-control form-control-sm" >&nbsp&nbsp
+</div><div class="col-lg-4" >
+<input type="text" placeholder="Case ID" ng-model="searchKeywordSerialNumber" pattern="[0-9]+" class="form-control form-control-sm" >
+</div>
+</div><br>
+
+
+
+<div class="" style="overflow-x: scroll;  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.85);">
+<table  ng-if="previousdates!={};" class="table table-hover table-responsive" style="background-color: white;">
+  <thead class="" style="background-color: rgba(174, 193, 236, 0.47);">
+    <tr>
+      <th  style="text-align: center;">Sno.</th>
+      <th style="text-align: center;">Patient Name</th>
+      <th style="text-align: center;">Case ID</th>
+      <th style="text-align: center;">Patient DOB</th>
+      <th style="text-align: center;">Date</th>
+      <th style="text-align: center;">Treatment</th>
+       <th style="text-align: center;">Download</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="repeated-item" ng-repeat="x in previousdates  |  filter:{'PatientName':  searchKeywordPatientName} | filter: {'serialnumber' : searchKeywordSerialNumber}" >
+      <th ng-click="loadform(x); "  style="text-align: center;">{{$index+1}}</th>
+      <td ng-click="loadform(x); " align="center" >{{x.PatientName}}</td>
+      <td ng-click="loadform(x); " align="center" >{{x.serialnumber}}</td>
+      <td ng-click="loadform(x); " align="center" >{{x.DOB|PatientDOB|PatientDOBfilter}}</td>
+      <td ng-click="loadform(x); " align="center" >{{x.Filedate|Stringdate|PatientDOBfilter}}</td>
+      <td align="center" ><form action="treatment2.jsp" method="post"> <input type="hidden" name="patientid" value="{{x.serialnumber}}" ><button class="btn btn-link"  type="submit" >View Treatment</button> </form> </td>
+	  <td > <a ng-click="checkreport(x.serialnumber)"> <i style="margin-top: 10px;"  class="fa fa-download" > </i></a> </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+ </div>
+<div class="col-lg-2"> </div>
+</div>
+</div>

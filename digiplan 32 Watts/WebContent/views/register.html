@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<div class="container">
+
+
+
+<div class="row">
+
+<div class="col-xs-1 col-md-4 col-lg-4" ></div>
+
+<div class="col-xs-10 col-md-4 col-lg-4" style="background-color: #deffff;" >
+<br>
+<form action="servlet2" method="post">
+<div style="text-align: center" >
+<label style="text-shadow: 4px 3px 7px rgba(6, 6, 6, 0.26);" ><h3>Register Here</h3> </label>
+</div>
+<div class="form-group">
+<label>Firstname :</label>
+<input type="text" name="fname" class="form-control form-control-sm" style="box-shadow: 3px 4px 9px rgb(226, 226, 226)">
+
+</div>
+
+<div class="form-group">
+<label>Lastname :</label>
+<input type="text" name="lname" class="form-control form-control-sm" style="box-shadow: 3px 4px 9px rgb(226, 226, 226)">
+
+</div>
+
+<div class="form-group">
+<label>Username :</label>
+<input type="text" name="uname" class="form-control form-control-sm" style="box-shadow: 3px 4px 9px rgb(226, 226, 226)">
+
+</div>
+
+
+<div class="form-group">
+<label>Password :</label>
+<input type="password" name="pwd" class="form-control form-control-sm" style="box-shadow: 3px 4px 9px rgb(226, 226, 226)" >
+
+</div>
+
+
+<div class="form-group">
+<label>Phone Number :</label>
+<input type="text" name="phone" class="form-control form-control-sm" style="box-shadow: 3px 4px 9px rgb(226, 226, 226)" >
+
+</div>
+
+<div class="form-group">
+<label>Email :</label>
+<input type="email" name="email" class="form-control form-control-sm" style="box-shadow: 3px 4px 9px rgb(226, 226, 226)" >
+
+</div>
+
+<div class="form-group">
+<label>City :</label>
+<input type="text" name="city" class="form-control form-control-sm" style="box-shadow: 3px 4px 9px rgb(226, 226, 226)" >
+
+</div>
+
+<div class="form-group">
+<label>Type of User :</label>
+<select name="typeofuser" class="form-control form-control-sm" style="box-shadow: 3px 4px 9px rgb(226, 226, 226)" > <option value="Doctor">Doctor</option>  <option value="Admin" >Admin</option> <option value="Support">Support</option> <option value="DoctorAdmin">Doctor-Admin</option> </select>
+
+</div>
+
+
+<div class="form-group" ng-init="fetchUserGroups()">
+<label>User Group :</label>
+<select name="groupId" class="form-control form-control-sm" style="box-shadow: 3px 4px 9px rgb(226, 226, 226)" > <option ng-repeat="userGroup in userGroups" value="{{userGroup.groupId}}">{{userGroup.groupName}}</option></select>
+
+</div>
+
+
+
+<input type="hidden" name="createdBy" value="{{adminuser}}" >
+<div style="text-align: center;" >
+<button type="submit" " style="color: white;" class="btn btn-primary" name="loginButton" value="Register" >Register</button>
+
+</div>
+
+</form>
+<br>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+</body>
+</html>

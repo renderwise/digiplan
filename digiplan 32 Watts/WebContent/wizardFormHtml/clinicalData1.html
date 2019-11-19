@@ -1,0 +1,332 @@
+<button type="button"  style="font-size: 12px; border-radius: 15px;height:25px; color:black" class="btn btn-default" ng-click="saveasdraft();" >Save in Draft</button>
+ <div></div>
+<div style="margin-bottom: -20px;"><label><b>CLINICAL DATA  2/2</b> </label></div>
+	<hr style=""  >
+	
+    <div class="form-group row" style="margin-top: -20px">
+      <label  class="col-lg-6 col-form-label">&nbsp &nbsp 2. Inter-Arch</label>
+      
+    </div>
+       
+    <div id="Inter-Arch" class="row" style="margin-top: -10px" >
+    <div class=" col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    <div style="text-align: center; border-bottom:thin solid;  "  >Right</div>
+    <div class="row " >
+    <div class="col-xs-6" ></div>
+    <div class="col-xs-6" style="text-align: center;" > I  &nbsp&nbsp  II  &nbsp&nbsp III </div>
+    </div>
+     <div class="form-group row" >
+      <label for="MolarRelation" class="col-xs-6 col-form-label">Molar Relation</label>
+      <div class="col-xs-6" style="text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.MolarRelation"  ng-checked="formdata.MolarRelation=='1'" name="MolarRelation" id="MolarRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.MolarRelation" ng-checked="formdata.MolarRelation=='2'" name="MolarRelation" id="MolarRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.MolarRelation" ng-checked="formdata.MolarRelation=='3'" name="MolarRelation" id="MolarRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -15px;">
+      <label for="CaninRelation" class="col-xs-6 col-form-label">Canine Relation</label>
+      <div class="col-xs-6" style="text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.CaninRelation" ng-checked="formdata.CaninRelation=='1'" name="CaninRelation" id="CaninRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.CaninRelation" ng-checked="formdata.CaninRelation=='2'" name="CaninRelation" id="CaninRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.CaninRelation" ng-checked="formdata.CaninRelation=='3'" name="CaninRelation" id="CaninRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row"  style="margin-top: -15px;  margin-bottom: -10px;">
+      <label for="CrossBite" class="col-xs-6 col-form-label">Cross Bite</label>
+      <div class="col-xs-6" style="text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" ng-model="formdata.CrossBite.Ant" ng-checked="formdata.CrossBite.Ant==true && formdata.CrossBite.No!=true" ng-disabled="formdata.CrossBite.No==true" name="CrossBite" id="CrossBite"  >
+            Ant.
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"ng-model="formdata.CrossBite.Post" ng-checked="formdata.CrossBite.Post==true && formdata.CrossBite.No!=true" ng-disabled="formdata.CrossBite.No==true" name="CrossBite" id="CrossBite"  >
+            Post.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" ng-model="formdata.CrossBite.No" ng-checked="formdata.CrossBite.No==true" name="CrossBite" id="CrossBite"  >
+            None
+          </label>
+        </div>
+
+      </div>
+    </div>
+     
+    
+    
+    
+    </div>
+     </div>
+    
+    <div class=" col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    <div style="text-align: center; border-bottom:thin solid;  "  >Left</div>
+    <div class="row " >
+    <div class="col-xs-6" ></div>
+    <div class="col-xs-6" style="text-align: center;" > I  &nbsp&nbsp  II  &nbsp&nbsp III </div>
+    </div>
+     <div class="form-group row" >
+      <label for="LMolarRelation" class="col-xs-6 col-form-label">Molar Relation</label>
+      <div class="col-xs-6" style="text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.LMolarRelation" ng-checked="formdata.LMolarRelation=='1'" name="LMolarRelation" id="LMolarRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.LMolarRelation" ng-checked="formdata.LMolarRelation=='2'" name="LMolarRelation" id="LMolarRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.LMolarRelation" ng-checked="formdata.LMolarRelation=='3'" name="LMolarRelation" id="LMolarRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -15px;">
+      <label for="LCaninRelation" class="col-xs-6 col-form-label">Canine Relation</label>
+      <div class="col-xs-6" style="text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio"  ng-required="requiredFlag" ng-model="formdata.LCaninRelation" ng-checked="formdata.LCaninRelation=='1'" name="LCaninRelation" id="LCaninRelation" value="1" checked>
+            
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.LCaninRelation" ng-checked="formdata.LCaninRelation=='2'" name="LCaninRelation" id="LCaninRelation" value="2" >
+            
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.LCaninRelation" ng-checked="formdata.LCaninRelation=='3'" name="LCaninRelation" id="LCaninRelation" value="3" >
+            
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -15px; margin-bottom: -10px;">
+      <label for="LCrossBite" class="col-xs-6 col-form-label">Cross Bite</label>
+      <div class="col-xs-6" style="text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"   ng-model="formdata.LCrossBite.Ant" ng-checked="formdata.LCrossBite.Ant==true && formdata.LCrossBite.No!=true" ng-disabled="formdata.LCrossBite.No==true" name="LCrossBite" id="LCrossBite"  >
+            Ant.
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"ng-model="formdata.LCrossBite.Post" ng-checked="formdata.LCrossBite.Post==true && formdata.LCrossBite.No!=true" ng-disabled="formdata.LCrossBite.No==true" name="LCrossBite" id="LCrossBite"  >
+            Post.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"  ng-model="formdata.LCrossBite.No" ng-checked="formdata.LCrossBite.No==true" name="CrossBite" id="CrossBite"  >
+            None
+          </label>
+        </div>
+
+      </div>
+    </div>
+     
+    
+    
+    
+    </div>
+     </div>
+     </div>
+     
+    <div class="row" style="padding-top: 10px;" >
+     <div class="col-lg-6">
+    <div style=" padding: 2px;  border:thin solid;  ">
+    
+    <div class="row " >
+    <div class="col-xs-6" > Incisor Relation</div>
+    
+    </div>
+    <div style="padding-left: 50px;">
+   <div class="form-group row">
+      <label for="Proclined" class="col-xs-4 col-form-label">i.&nbspProclined</label>
+      <div class="col-xs-8" style="text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input"  type="radio" ng-required="requiredFlag" ng-model="formdata.Proclined"  ng-checked="formdata.Proclined=='Yes'" name="Proclined" id="Proclined" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Proclined" ng-checked="formdata.Proclined=='No'" name="Proclined" id="Proclined" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+   
+   <div class="form-group row" style="margin-top: -20px">
+      <label for="Retroclined" class="col-xs-4 col-form-label">ii.&nbspRetroclined</label>
+      <div class="col-xs-8" style="text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Retroclined" ng-checked="formdata.Retroclined=='Yes'" name="Retroclined" id="Retroclined" value="Yes" checked>
+            Yes &nbsp &nbsp &nbsp   
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input"  type="radio" ng-required="requiredFlag" ng-model="formdata.Retroclined" ng-checked="formdata.Retroclined=='No'" name="Retroclined" id="Retroclined" value="No" >
+            No
+          </label>
+        </div>
+
+      </div>
+    </div>
+   
+   <div class="form-group row" style="margin-top: -20px">
+      <label for="Overjet" class="col-xs-4 col-form-label">iii.&nbspOverjet</label>
+      <div class="col-xs-8" style="text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Overjet" ng-checked="formdata.Overjet=='inc'" name="Overjet" id="Overjet" value="inc" checked>
+            Inc. 
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Overjet"  ng-checked="formdata.Overjet=='dec'" name="Overjet" id="Overjet" value="dec" >
+            Dec.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Overjet" ng-checked="formdata.Overjet=='nor'" name="Overjet" id="Overjet" value="nor" >
+            Nor.
+          </label>
+          
+        </div>
+
+      </div>
+    </div>
+   
+   <div class="form-group row" style="margin-top: -20px">
+      <label for="Overbite" class="col-xs-4 col-form-label">iii.&nbspOverbite</label>
+      <div class="col-xs-8" style="text-align: center;" >
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Overbite" ng-checked="formdata.Overbite=='inc'" name="Overbite" id="Overbite" value="inc" checked>
+            Inc. 
+          </label>
+        
+        
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Overbite" ng-checked="formdata.Overbite=='dec'" name="Overbite" id="Overbite" value="dec" >
+            Dec.
+          </label>
+          
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Overbite" ng-checked="formdata.Overbite=='nor'" name="Overbite" id="Overbite" value="nor" >
+            Nor.
+          </label>
+          
+        </div>
+
+      </div>
+    </div>
+     
+    
+    </div>
+    
+    
+    <div class="form-group row">
+      <label for="Midlines" class="col-xs-4 col-form-label">Midlines</label>
+      <div class="col-xs-8" >
+      <div class="row">
+        <div class="col-xs-6" >
+        <div style="text-align: center;"><label >Upper</label></div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" ng-required="requiredFlag" ng-model="formdata.MidlinesUpper" ng-checked="formdata.MidlinesUpper=='Deviated'" name="MidlinesUpper" id="MidlinesUpper" value="Deviated" checked>
+            <span style="font-size:small;" >Deviated</span>
+          </label>
+        </div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" ng-required="requiredFlag" ng-model="formdata.MidlinesUpper"  ng-checked="formdata.MidlinesUpper=='Normal'" name="MidlinesUpper" id="MidlinesUpper" value="Normal" checked>
+            <span style="font-size:small;" >Normal</span>
+          </label>
+        </div>
+        
+        </div>
+        <div class="col-xs-6" >
+        
+        <div style="text-align: center;"><label >Lower </label></div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" ng-required="requiredFlag" ng-model="formdata.MidlinesLower"  ng-checked="formdata.MidlinesLower=='Deviated'" name="MidlinesLower" id="MidlinesLower" value="Deviated" checked>
+            <span style="font-size:small;" >Deviated</span>
+          </label>
+        </div>
+        <div class="form-check" >
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" style="margin-top:7px;" ng-required="requiredFlag" ng-model="formdata.MidlinesLower"  ng-checked="formdata.MidlinesLower=='Normal'" name="MidlinesLower" id="MidlinesLower" value="Normal" checked>
+            <span style="font-size:small;" >Normal</span>
+          </label>
+        </div>
+        
+        </div>
+        </div>
+        <div class="row" style="padding-left: 20px;     padding-right: 20px;" >Specify (mm)<input class="form-control form-check-input" value="{{formdata.MidlinesSpecify}}" ng-required="requiredFlag" ng-model="formdata.MidlinesSpecify" type="text" id="MidlinesSpecify" name="MidlinesSpecify" placeholder="mm"></div>
+      </div>
+    </div>
+    
+     
+    
+    
+    
+    </div>
+     </div>
+    </div>

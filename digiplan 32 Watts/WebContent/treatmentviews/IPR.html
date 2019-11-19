@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div ng-init="$parent.$parent.activeLink='IPR'" ></div>
+
+ <div style="text-align: center ;"> <div ng-show="IPRarray"><select class="form-control" ng-model="selectedIPR" ng-change="openIPRmobile(selectedIPR)"> <option value="">--select--</option>
+	<option ng-repeat="item in IPRarray"  value="{{item.url}}" >{{item.imagename}}</option>
+	 </select> </div> </div>
+	 
+<img style="margin-left: auto;
+margin-right: auto;
+display: block;" alt="IPR NOT AVAILABLE" class="img-responsive" id="IPRimagemobile" src="">
+<div ng-init="showIPRimagemobile();" ></div>
+
+</body>
+</html>

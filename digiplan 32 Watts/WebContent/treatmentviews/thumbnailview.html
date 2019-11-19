@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body >
+<div class="row" style="height: 250px; " >
+
+<a class="col-xs-6 well"  href="#!main"  style=" height:inherit; overflow: auto;" >
+<div class="col-lg-6 col-sm-6" style="padding: 10px;" id="urlarrayrepeat" ng-repeat="item in urlarrayforgif"  >
+
+<div class="containerimage">
+  <img src="{{item.url}}" alt="Avatar" class="img-responsive image" style="">
+	<!-- <img id="gifid{{$index}}" src="{{item.url}}" rel:animated_src="{{item.url}}" rel:auto_play="0" class="img-responsive"  ng-mouseover="try3d('gifid'+$index);" /> -->  
+  <div class="middle">
+    <div class="btn btn-sm btn-success" ng-click="imgonclick(item)"><i class="fa fa-arrows-alt"></i></div>
+    <div class="btn btn-sm btn-success" style="margin-top: 10px;" ng-click="cmntonclick(item.imagename);"><i class="fa fa-comment"></i></div>
+    
+  </div>
+  <div class="middle" style="top: 90% ; left: 45%;" > <label style="color: white;">{{item.imagename}}</label> </div>
+</div>
+</div>
+
+</a>
+<a class="col-xs-6 well" href="#!Analysis" style=" height:inherit; overflow: auto;" >
+<div ng-init="showsplimageformobilethumbnailview()" ></div>
+<img  style="margin-left: auto; margin-right: auto;" alt="" class="img-responsive" id="Analysisimagemobilethumbnailview" src="">
+
+</a>
+</div>
+<div class="row" style="height: 250px; " >
+<a class="col-xs-6 well"   href="#!Front" style=" height:inherit; overflow: auto;">
+<img id="splimagemobilethumbnailview"  class="img-responsive" style="border: none;">
+
+{{showfrontimagemobilethumbnailview()}}
+</a>
+<a class="col-xs-6 well"  href="#!IPR" style="    height:inherit; overflow: auto;">
+ <div style="text-align: center ;"> <div ng-show="IPRarray"><select class="form-control" ng-model="selectedIPR" ng-change="openIPRmobile(selectedIPR)"> <option value="">--select--</option>
+	<option ng-repeat="item in IPRarray"  value="{{item.url}}" >{{item.imagename}}</option>
+	 </select> </div> </div>
+	 
+<img style="margin-left: auto;
+margin-right: auto;
+display: block;" alt="IPR NOT AVAILABLE" class="img-responsive" id="IPRimagemobilethumbnailview" src="">
+<div ng-init="showIPRimagemobile();" ></div>
+</a>
+</div>
+{{$parent.$parent.activeLink=null}}
+</body>
+</html>

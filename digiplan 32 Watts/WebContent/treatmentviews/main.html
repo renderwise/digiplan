@@ -1,0 +1,18 @@
+<script src="AOS/aos.js" ></script>
+<link rel="stylesheet" type="text/css" href="AOS/aos.css">
+<script> AOS.init();</script>
+
+<div ng-init="$parent.$parent.activeLink='main'" ></div>
+<div class="col-lg-6 col-sm-6" style="padding: 10px;" id="urlarrayrepeat" ng-repeat="item in urlarrayforgif"  >
+
+<div class="containerimage">
+  <img src="{{item.url}}" alt="Avatar" class="img-responsive image" style="">
+	<!-- <img id="gifid{{$index}}" src="{{item.url}}" rel:animated_src="{{item.url}}" rel:auto_play="0" class="img-responsive"  ng-mouseover="try3d('gifid'+$index);" /> -->  
+  <div class="middle">
+    <div class="btn btn-sm btn-success" ng-click="imgonclick(item)"><i class="fa fa-arrows-alt"></i></div>
+    <div class="btn btn-sm btn-success" style="margin-top: 10px;" ng-click="cmntonclick(item.imagename);"><i class="fa fa-comment"></i></div>
+    
+  </div>
+  <div class="middle" style="top: 90% ; left: 45%;" > <label style="color: white;">{{item.imagename}}</label> </div>
+</div>
+</div>

@@ -1,0 +1,46 @@
+<link rel="stylesheet" type="text/css" href="CSS/tableanimation.css">
+
+<div style="margin-top: 20px;" ng-init="viewdrafts();" >
+<div class="row" >
+<div class="col-lg-3" > </div>
+<div class="col-lg-6" >
+<div style="text-align: center;" ng-if="drafts.length==0;">No Data Present.</div>
+
+
+<br>
+<table  ng-if="drafts.length!=0;" class="table table-hover" style="background-color: white;box-shadow: 3px 3px 50px rgba(0, 0, 0, 0.85);">
+  <thead class="" style="background-color: rgba(174, 193, 236, 0.47);">
+    <tr>
+    <!-- <th style="text-align: center;">Id</th> -->
+      <th  style="text-align: center;">Sno.</th>
+      <th style="text-align: center;">Patient Name</th>  
+     <!--  <th style="text-align: center;">Patient DOB</th> -->
+      <th style="text-align: center;">Age</th>
+      <th style="text-align: center;">Date</th>
+       <th style="text-align: center;">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr class="repeated-item" ng-repeat="x in drafts" ng-click="loaddraft(x); "> -->
+    <tr class="repeated-item" ng-repeat="x in drafts">
+    <!--  <td align="center" >{{x.draftId}}</td> -->
+      <th  style="text-align: center;">{{$index+1}}</th> 
+     <!--  <th  style="text-align: center;">{{x.PatientName}}</th> -->
+      <td align="center" >{{x.PatientName}}</td> 
+      <td align="center" >{{x.Age}}</td> 
+      <!-- <td align="center" >{{x.DOB|PatientDOB|PatientDOBfilter}}</td> -->
+      <td align="center" >{{x.Filedate|Stringdate|PatientDOBfilter}}</td>
+     
+     <td ><button type="button" style="font-size: 12px; height:25px; color:red"  class="btn btn-default" ng-click="loaddraft(x);" >Edit</button>
+     <button type="button" style="font-size: 12px; height:25px; color:red"  class="btn btn-default" ng-click="deletedraftcheck(x.draftId);" >Delete</button></td>
+      
+    </tr>
+       
+  </tbody>
+</table>
+
+
+ </div>
+<div class="col-lg-3"> </div>
+</div>
+</div>

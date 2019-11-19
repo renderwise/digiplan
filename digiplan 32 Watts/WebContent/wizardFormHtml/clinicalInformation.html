@@ -1,0 +1,57 @@
+<!-- <button type="button"  style="font-size: 12px; border-radius: 15px;height:25px; color:black" class="btn btn-default" ng-click="saveasdraft();" >Save in Draft</button>
+ <div></div> -->
+<div ng-init="clickCurrentActive();">
+<h3>CLINIC INFORMATION</h3>
+<hr/>
+    <div class="form-group row">
+      <label for="DoctorName" ng-hide="supportuser" class="col-lg-4 col-form-label">Orthodontist's Name</label>
+      <label for="DoctorName" ng-show="supportuser" class="col-lg-4 col-form-label">On Behalf of Doctor</label>
+      <div class="col-lg-8">
+        <input ng-hide="supportuser || adminuser"   disabled="disabled" type="text"  class="form-control"  ng-required="!(supportuser || adminuser)" ng-model="formdata.DoctorName"   value="{{formdata.DoctorName}}" name="DoctorName" id="DoctorName" placeholder="Doctor Name">
+        <input  ng-show="adminuser && !supportuser " type="text" class="form-control " ng-required="adminuser && !supportuser" ng-model="formdata.DoctorName"   value="{{formdata.DoctorName}}" name="DoctorName" id="DoctorName" placeholder="Doctor Name">
+		<select class="form-control" ng-show="supportuser" ng-required="supportuser" ng-model="formdata.DoctorName" ng-init="fetchdoctornames();" ><option value="" >-Select-</option> <option ng-repeat="names in DoctorNames" value="{{names}}">{{names}}</option> </select>      
+      </div>
+    </div>
+    
+     <div class="form-group row" style="margin-top: -10px;">
+      <label for="DoctorPhoneNumber" class="col-lg-4 col-form-label">Phone Number</label>
+      <div class="col-lg-8">
+        <input type="text" pattern="[0-9]{10}" class="form-control " required minlength="10" maxlength="10" ng-required="requiredFlag" ng-model="formdata.DoctorPhoneNumber"   value="{{formdata.DoctorPhoneNumber}}" name="DoctorPhoneNumber" id="DoctorPhoneNumber" placeholder="Phone Number">
+      </div>
+    </div>
+    
+    <div class="form-group row" style="margin-top: -10px;">
+      <label for="ClinicAddress" class="col-lg-4 col-form-label">Treating Doctor</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" required ng-model="formdata.treatingDoctor"  value="{{formdata.treatingDoctor}}" id="treatingDoctor" placeholder="Treating Doctor">
+      </div>
+    </div>
+    
+     <div class="form-group row" style="margin-top: -10px;">
+      <label for="DoctorPhoneNumber" class="col-lg-4 col-form-label">Treating Doctor's Phone</label>
+      <div class="col-lg-8">
+        <input type="text" pattern="[0-9]{10}" class="form-control"  required minlength="10" maxlength="10" ng-required="requiredFlag" ng-model="formdata.treatingDoctorPhone"   value="{{formdata.treatingDoctorPhone}}" name="treatingDoctorPhone" id="treatingDoctorPhone" placeholder="Treating Doctor's Phone">
+      </div>
+    </div>
+    
+    
+    <div class="form-group row" style="margin-top: -10px;">
+      <label for="ClinicAddress" class="col-lg-4 col-form-label">Clinic Address</label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" ng-required="requiredFlag" ng-model="formdata.ClinicAddress"  value="{{formdata.ClinicAddress}}" id="ClinicAddress" placeholder="Clinic Address">
+      </div>
+    </div>
+    
+     <div class="form-group row" style="margin-top: -10px;">
+      <label for="ClinicAddress" class="col-lg-4 col-form-label">City</label>
+      <div class="col-lg-8" ng-init="fetchcities()">
+        <select  class="form-control" ng-required="requiredFlag" ng-model="formdata.City"   id="City" placeholder="Clinic Address"><option value="" >--Select--</option> <option ng-repeat="item in Cities" value="{{item.id}}">{{item.name}}</option> </select>
+      </div>
+    </div>
+     <div class="form-group row" style="margin-top: -10px;">
+      <label for="ClinicAddress" class="col-lg-4 col-form-label">Clinic Email</label>
+      <div class="col-lg-8">
+        <input type="email" class="form-control" ng-required="requiredFlag" ng-model="formdata.ClinicEmail"  value="{{formdata.ClinicEmail}}" id="ClinicEmail" placeholder="Clinic Email">
+      </div>
+    </div>
+    

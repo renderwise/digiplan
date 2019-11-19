@@ -1,0 +1,86 @@
+<div ng-init="$parent.$parent.$parent.activeLink='3dview'" ></div>
+<li style="margin-left: 10px;" ng-repeat="things in categories" ><a id="tog" ng-click="$parent.$parent.$parent.category=things; show3dview();" >{{things}}</a></li>
+<div id="gridsize" class="col-lg-4 " style="box-shadow: 0px 0px 20px black; background-color: #f1f1f1f5;">
+	
+	<div id="canvasesdiv3d" ng-show="urlarray.length>0" style="position:relative; width:100%; height:100%; text-align: center; "  >
+<canvas ng-mouseover="stoptimer();" ng-mouseleave="callintervalonplaywithoutpause();" id="layer1"
+style="z-index: 1;
+position:relative;" width="400px" height="400px"  >
+This text is displayed if your browser does not support HTML5 Canvas.
+</canvas>  
+
+<canvas align="center" id="layer2"
+style="z-index: 2;  pointer-events: none;
+position:absolute ;
+left:0px;
+top:0px;" width="400px" height="400px"  >
+This text is displayed if your browser does not support HTML5 Canvas.
+</canvas>
+
+<canvas align="center" id="layer3"
+style="z-index: 2;
+position:absolute ;  pointer-events: none;
+left:0px;
+top:0px;" width="400px" height="400px"  >
+This text is displayed if your browser does not support HTML5 Canvas.
+</canvas>
+
+<div id="loadingSpinner" style="z-index: 5; display:none;
+position:absolute; top:45% ; left: 40%" ><i class="fa fa-circle-o-notch fa-spin fa-5x"></i></div>
+
+</div>
+	<img id="splimage" ng-show="urlarray.length==0" class="img-responsive" style="border: none;">
+
+</div>
+</div>
+    <!--  <div style="text-align: center;"><label>Timer :</label> <button class="badge" ng-click=" replacebytime();callinterval();" > > </button> <button ng-click="stoptimer();" class="badge" > || </button> </div> -->
+
+ <div ng-show="urlarray.length>0" class="player row" style="background-color:black; margin-top:-15px; padding: 10px; ">
+ 	<div class="col-lg-3">
+    <button type="button" id="button_fbw" class="btn" onclick='' ng-click="$parent.$parent.urlarrayindex=0; replacebytimewithoutpause();callintervalonplaywithoutpause();">
+      <i class="fa fa-fast-backward"></i>
+    </button>
+    
+    <button type="button" id="button_bw" class="btn" onclick='' ng-click="$parent.$parent.urlarrayindex=$parent.urlarrayindex-2; replacebytimewithoutpause();callintervalonplaywithoutpause();">
+      <i class="fa fa-backward"></i>
+    </button>
+    
+    <button type="button" id="button_play" class="btn" ng-click="replacebytimewithoutpause();callintervalonplaywithoutpause(); " >
+      <i class="fa fa-play"></i>
+    </button>
+    
+    <button type="button" id="button_stop" class="btn"  ng-click="stoptimer();">
+      <i class="fa fa-stop"></i>
+    </button>
+    
+    <button type="button" id="button_fw" class="btn"  ng-click="replacebytimewithoutpause();callintervalonplaywithoutpause();" >
+      <i class="fa fa-forward"></i>
+    </button>
+    
+    <button type="button" id="button_ffw" class="btn" onclick='' ng-click="$parent.$parent.urlarrayindex=$parent.$parent.urlarray.length-1; replacebytimewithoutpause();callintervalonplaywithoutpause();" >
+      <i class="fa fa-fast-forward"></i>
+    </button>    
+    </div>
+    
+    <div class="col-lg-9" >
+   
+	<ul style="display: flex; 
+    align-items: stretch; /* Default */
+    justify-content: space-between;
+    width: 99%;
+    background:;
+    
+    margin-left:-10px;
+    padding: 0;" id="alignernumber"> 
+	<li style=" display: block;
+    flex: 0 1 auto; /* Default */
+    list-style-type: none;
+   	 
+   	font-weight: bold;" ng-style="slidervalue == $index ? { color:  'white'  } : { color : 'grey' }" ng-repeat="item in urlarray">{{$index+1}}</li>
+	 </ul>
+    <input style=" margin-top: -5px; margin-left:-15px; width: 100%" type="range" class="slider" ng-change="slidervaluechanged($parent.slidervalue); showcommenttextarea=true;"  ng-model="$parent.slidervalue"   min="0" max="{{urlarray.length-1}}" >
+    
+    </div>
+    
+    
+  </div> 

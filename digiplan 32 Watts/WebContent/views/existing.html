@@ -1,0 +1,125 @@
+<link rel="stylesheet" type="text/css" href="CSS/tableanimation.css">
+<link href="CSS/font-awesome.css" rel="stylesheet" />
+<div style="margin-top: 20px;" ng-init="fetchusers();" >
+<div class="row" >
+<div class="col-lg-2 col-1" > </div>
+<div class="col-lg-8 col-10" >
+<div style="text-align: center;" ng-if="previoususers=={};">No Case initiated.</div>
+<div class="row " ><span class="col-lg-2"></span>
+<label class="col-lg-2"><b>Search : </b>  </label>
+<div class="col-lg-4" ><input type="text" placeholder="User Name"  ng-model="searchKeywordUserName" class="form-control input-sm" ></div>
+ 
+<!-- <input type="text" placeholder="Case ID" ng-model="searchKeywordSerialNumber" pattern="[0-9]+" class="col-lg-4 form-control form-control-sm" > -->
+
+</div>
+
+<br>
+<div class="" style="overflow-x: scroll;  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.85);">
+<table  ng-if="previousdates!={};" class="table table-hover " style="background-color: white;">
+  <thead class="" style="background-color: rgba(174, 193, 236, 0.47);">
+    <tr>
+      <th  style="text-align: center;">Sno.</th>
+      <th style="text-align: center;">User Name</th>
+      <th style="text-align: center;">Password</th>
+      <th style="text-align: center;">Change Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="repeated-item" ng-repeat="x in previoususers  |  filter:{'username':  searchKeywordUserName}" >
+      <th   style="text-align: center;">{{$index+1}}</th>
+      <td  align="center" >{{x.username}}</td>
+      <td align="center" > <input ng-init="passwordtype='password'" style=" border: none;background: transparent;color: #000;" type="{{passwordtype}}"  disabled="disabled" value="{{x.password}}" ><i ng-show="!showpass" class="fa fa-eye" ng-click="showpass=true; passwordtype='text';" ></i> <i ng-show="showpass" class="fa fa-eye-slash" ng-click="showpass=false; passwordtype='password';" ></i> </td>
+      <td  align="center" ><a href="" ng-click="changepasswordopenmodal(x)" >Change</a> </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+ </div>
+<div class="col-lg-2"> </div>
+</div>
+</div>
+
+  <div class="modal fade" id="changepasswordmodal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" style=" background: none; border: none;">
+        
+        <div class="modal-body"   >
+       
+			<div style="text-align: center;">
+			<div class="row"  >
+					<div class="col-lg-3" ></div>
+					
+					<div class="col-lg-6" style="padding: 50px; background-color: white; box-shadow: 0px 0px 20px black; border-radius:5px;">
+					<div class="row" style="text-align: center;"  >
+					<h3>Change Password</h3>
+					</div>
+					<hr style="" >
+					
+					<form ng-submit="changepasswordotheruser();">
+					<div class="row" >
+					<div class="col-lg-6">User Name</div>
+					<div class="col-lg-6"><input type="text" class="form-control" ng-model="selectedjson.username"  disabled="disabled" > </div>
+					</div>
+					<br>
+					<div class="row" >
+					<div class="col-lg-6">Old Password</div>
+					<div class="col-lg-4 "> <input ng-init="passwordtype='password'" class="" style=" border: none;background: transparent;color: #000;" type="{{passwordtype}}"  disabled="disabled" ng-model="selectedjson.password" ng-init="selectedjson.oldpassword=selectedjson.password"> </div><div class="col-lg-1"><i ng-show="!showpass1" class="fa fa-eye " style="margin-top: 5px" ng-click="showpass1=true; passwordtype='text';" ></i> <i style="margin-top: 5px" ng-show="showpass1" class="fa fa-eye-slash " ng-click="showpass1=false; passwordtype='password';" ></i>
+					 </div>
+					</div>
+					<br>
+					<div class="row" >
+					<div class="col-lg-6">New Password</div>
+					<div class="col-lg-6"><input type="password" required="required" class="form-control" ng-model="selectedjson.newpassword" > </div>
+					</div>
+					<br>
+					<div class="row" >
+					<div class="col-lg-6">Confirm New Password</div>
+					<div class="col-lg-6"><input type="password" required="required" class="form-control" ng-model="selectedjson.confirmnewpassword" ng-blur="checkpasswordotheruser();" >
+					<label class="text-danger" ng-if="matches" >Password doesnot match</label>
+					</div>
+					</div>
+					
+					<br>
+					<div class="row" style="text-align: center;" >
+					<div class="col-lg-12"><button type="submit" class="btn btn-primary" ng-disabled="passwordbuttondisable" >Change Password</button>
+					</div>
+					</div>
+					</form>
+					</div>
+					
+					
+					</div>
+			</div>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="passwordchangedmodalforotheruser" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        <h4 class="modal-title">Changed</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+        </div>
+        <form action="Uploadfile" method="post" enctype="multipart/form-data" >
+        <div class="modal-body">
+        		
+        		<label>Password has been changed successfully for {{selectedjson.username}}.</label>
+				
+			
+        </div>
+        <div class="modal-footer">
+         
+          <a type="button" class="btn btn-danger" data-dismiss="modal" >ok</a>
+        </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>

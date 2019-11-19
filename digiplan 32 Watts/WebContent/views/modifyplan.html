@@ -1,0 +1,12 @@
+<div ></div>
+<div style="text-align: center;" ng-show="previousdates.length==0;">No Case initiated.</div>
+<div class="row container " style="margin-left: auto; margin-right: auto;" ng-show="previousdates.length!=0;" ><span class="col-lg-1"></span>
+<label class="col-lg-0">  </label>
+<div class="col-lg-5" >
+ <input type="text" placeholder="Enter Plan Number"  ng-model="$parent.searchKeywordPatientName1" class=" form-control form-control-sm" >&nbsp&nbsp
+</div><div class="col-lg-5" >
+<input type="text" placeholder="Case ID" ng-model="$parent.searchKeywordSerialNumber1" pattern="[0-9]+" class=" form-control form-control-sm" >&nbsp&nbsp&nbsp&nbsp
+</div>
+<button type="button" class="btn btn-primary" ng-click="viewtreatmentongoclick1()">Go</button>
+<form action="treatment2.jsp" method="post"> <input type="hidden" id="patientidvalue" name="patientid" value="" ><button class="btn btn-link" id="clicktoviewtreatment" style="display: none;" type="submit" >View Treatment</button> </form> </td>
+</div>

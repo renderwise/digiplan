@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Your Uploaded Documents</title>
+ <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="CSS/viewslider.css">
+  <script type="text/javascript" src="script/angular.min.js" ></script>
+<script type="text/javascript" src="script/ng-file-upload.min.js" ></script>
+<script type="text/javascript" src="script/ng-file-upload-shim.min.js" ></script>
+<script type="text/javascript" src="script/FileSaver.js" ></script>
+<script src="script/angular-route.js"></script>
+ <script src="script/angular-animate.js"></script>
+<script src="script/jquery.js" ></script>
+<script type="text/javascript" src="script/viewangularapp.js"></script>
+<script type="text/javascript" src="script/moment.js" ></script>
+<script src="script/tether.js"></script>
+<script src="script/bootstrap.js"></script>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div  style="position: fixed;
+    bottom: 0;
+    width: 100%; z-index: 100;"><i class="fa fa-copyright "></i> All Rights Are Reserved With <strong> RenderWise Solution.</strong> </div>
+<body ng-app="viewapp" ng-controller="viewcontroller" style="background-image: url('image/background.jpg');  background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; background-size:cover; " >
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse"  style="box-shadow: 0px 3px 5px gray" >
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand col-lg-2 col-4" href="http://alignwisesmile.com" ><img alt="" src="http://alignwisesmile.com/images/logo.png" width="90%"> </a>
+   <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto" >
+    	<li class="nav-item">
+ 	 <a class="nav-link" style="color:white;"  data-toggle="tab" href="" role="tab"  >Home</a>
+  	</li>
+    </ul>  
+  </div>
+</nav>
+<div class="row" >
+<div class="col-lg-4"></div>
+<div class="col-lg-4">
+<br>
+<table class="table table-striped " style="box-shadow:0px 0px 20px black; background-color: white" >
+<tbody>
+<tr> <th colspan="2" style="text-align: center;"> Your Uploads </th> </tr>
+
+
+<tr ng-repeat="item in uploadarray" >
+<th>{{$index+1}}</th>
+<td style="text-align: center;" > <a href="uploads/{{formdata.name}}/{{item}}">{{item}}</a> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</body>
+</html>

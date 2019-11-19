@@ -1,0 +1,145 @@
+<button type="button"  style="font-size: 12px; border-radius: 15px;height:25px; color:black" class="btn btn-default" ng-click="saveasdraft();" >Save in Draft</button>
+ <div></div>
+ <div style="margin-bottom: -20px;"><label><b>SUGGESTED TREATMENT INSTRUCTIONS  Continue... 1/2</b> </label></div>
+	<hr style="" >
+	
+   	<div style="margin-top: -10px;" id="Treatment">
+   	
+   	<div class="form-group ">
+      <label for="Treat" class="col-xs-7 col-form-label" >a) Treat </label>
+      <div class="col-xs-12" style=" margin-left: 10%;" >
+      	
+        <div class="form-check row"  >
+          <label class="form-check-label col-xs-4 col-lg-3 ">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Treat" ng-checked="formdata.Treat=='BothArches'" name="Treat" id="Treat" value="BothArches" checked>
+            Both Arches    
+          </label>
+        
+       
+          <label class="form-check-label col-xs-3">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Treat" ng-checked="formdata.Treat=='UpperArch'" name="Treat" id="Treat" value="UpperArch" >
+            Upper Arch  
+          </label>
+        
+        
+          <label class="form-check-label col-xs-3 ">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.Treat" ng-checked="formdata.Treat=='LowerArch'" name="Treat" id="Treat" value="LowerArch" >
+            Lower Arch
+          </label>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="form-group " style="margin-top: -10px;" >
+      <label for="CorrectCrowdingby" class="col-xs-7 col-form-label" >b) <input type="checkbox" ng-model="formdata.CorrectCrowdingbyCheck" ng-init="formdata.CorrectCrowdingbyCheck = (formdata.CorrectCrowdingbyCheck!==undefined) ? formdata.CorrectCrowdingbyCheck : true " >	Correct Crowding by</label>
+      <div class="col-xs-12" style="margin-left: 10%;" ng-show="formdata.CorrectCrowdingbyCheck">
+      
+      <div class="form-check row" >
+          <label class="form-check-label col-xs-4">
+            <input class="form-check-input" type="checkbox"  ng-model="formdata.CorrectCrowdingby.NotApplicable" name="CorrectCrowdingby" ng-checked="formdata.CorrectCrowdingby.NotApplicable==true"   value="NotApplicable" >
+            Not Applicable 
+          </label>
+         
+        
+        </div>
+        <div class="form-check row" >
+          <label class="form-check-label col-xs-4">
+            <input class="form-check-input" type="checkbox" name="CorrectCrowdingby" ng-model="formdata.CorrectCrowdingby.Expansion" ng-checked="formdata.CorrectCrowdingby.Expansion==true"   value="Expansion" >
+            Expansion    
+          </label>
+           <label ng-if="formdata.CorrectCrowdingby.Expansion==true" class="form-check-label col-xs-4">
+            <input class="form-check-input" type="checkbox"  ng-click="$parent.requirevariable= !$parent.requirevariable"  ng-model="$parent.formdata.CorrectCrowdingbyonlyifneeded.Expansiononlyifneeded" ng-checked="$parent.formdata.CorrectCrowdingbyonlyifneeded.Expansiononlyifneeded==true"  value="Expansion" >
+            only if needed    
+          </label>
+        
+        </div>
+         <div class="form-check row" ng-init="requirevariable=false">
+          <label class="form-check-label col-xs-4">
+            <input class="form-check-input" type="checkbox" name="CorrectCrowdingby" ng-model="formdata.CorrectCrowdingby.Proclination" ng-checked="formdata.CorrectCrowdingby.Proclination==true"   value="Proclination" >
+            Proclination    
+          </label>
+           <label ng-if="formdata.CorrectCrowdingby.Proclination==true" class="form-check-label col-xs-4">
+            <input class="form-check-input" type="checkbox" ng-click="$parent.requirevariable= !$parent.requirevariable" ng-model="$parent.formdata.CorrectCrowdingbyonlyifneeded.Proclinationonlyifneeded" ng-checked="$parent.formdata.CorrectCrowdingbyonlyifneeded.Proclinationonlyifneeded==true"  value="Proclination" >
+            only if needed    
+          </label>
+        
+        </div>
+         <div class="form-check row" ng-init="requirevariable=false">
+          <label class="form-check-label col-xs-4">
+            <input class="form-check-input" type="checkbox" name="CorrectCrowdingby" ng-model="formdata.CorrectCrowdingby.IPR" ng-checked="formdata.CorrectCrowdingby.IPR==true"   value="IPR" >
+            IPR    
+          </label>
+           <label ng-if="formdata.CorrectCrowdingby.IPR==true" class="form-check-label col-xs-4">
+            <input class="form-check-input" type="checkbox" ng-click="$parent.requirevariable= !$parent.requirevariable" ng-model="$parent.formdata.CorrectCrowdingbyonlyifneeded.IPRonlyifneeded" ng-checked="$parent.formdata.CorrectCrowdingbyonlyifneeded.IPRonlyifneeded==true"  value="IPR" >
+            only if needed    
+          </label>
+        
+        </div> 
+           <div class="form-check row" ng-init="requirevariable=false">
+          <label class="form-check-label col-xs-4">
+            <input class="form-check-input" type="checkbox" name="CorrectCrowdingby" ng-model="formdata.CorrectCrowdingby.Extraction" ng-checked="formdata.CorrectCrowdingby.Extraction==true"   value="Extraction" >
+            Extraction (Specify)    
+          </label>
+           <label ng-if="formdata.CorrectCrowdingby.Extraction==true" class="form-check-label col-xs-4">
+            <input class="form-check-input" type="checkbox" ng-click="$parent.requirevariable= !$parent.requirevariable"  ng-model="$parent.formdata.CorrectCrowdingbyonlyifneeded.Extractiononlyifneeded" ng-checked="$parent.formdata.CorrectCrowdingbyonlyifneeded.Extractiononlyifneeded==true"  value="Extraction" >
+            only if needed    
+          </label>
+        
+        </div>
+		<input class="form-control col-xs-8" ng-show="formdata.CorrectCrowdingby.Extraction==true" type="text" value="{{formdata.ExtractionSpecify}}" ng-model="formdata.ExtractionSpecify" id="ExtractionSpecify" name="ExtractionSpecify">
+      </div>
+    </div>
+    
+   	<div class="form-group " style="margin-top: -10px;">
+      <label for="CorrectSpacing" class="col-xs-7 col-form-label">c) <input type="checkbox" ng-model="formdata.CorrectSpacingCheck" ng-init="formdata.CorrectSpacingCheck = (formdata.CorrectSpacingCheck!==undefined) ? formdata.CorrectSpacingCheck : true " >	Correct Spacing	</label>
+      <div class="col-xs-12" style="margin-left: 10%" ng-show="formdata.CorrectSpacingCheck">
+      	
+        <div class="form-check row"   >
+          <label class="form-check-label col-lg-3 col-xs-5 ">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.CorrectSpacing" ng-checked="formdata.CorrectSpacing=='CloseAllSpaces'"  name="CorrectSpacing" id="CorrectSpacing" value="CloseAllSpaces" >
+            Close all Spaces.    
+          </label>
+       
+          <label class="form-check-label col-xs-5">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.CorrectSpacing" ng-checked="formdata.CorrectSpacing=='RedistributeSpaces'" name="CorrectSpacing" id="CorrectSpacing" value="RedistributeSpaces" >
+            Redistribute Spaces.  
+          </label>
+            <label class="form-check-label col-xs-5">
+            <input class="form-check-input" type="radio" ng-required="requiredFlag" ng-model="formdata.CorrectSpacing" ng-checked="formdata.CorrectSpacing=='NotApplicable'" name="CorrectSpacing" id="CorrectSpacing" value="NotApplicable" >
+            Not Applicable 
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+    
+    <div class="form-group "style="margin-top: -10px;">
+      <label for="CorrectRotation" class="col-xs-7 col-form-label" >d) <input type="checkbox" ng-model="formdata.CorrectRotationCheck" ng-init="formdata.CorrectRotationCheck = (formdata.CorrectRotationCheck!==undefined) ? formdata.CorrectRotationCheck : true " >	Correct Rotation </label>
+      <div class="col-xs-12" style="margin-left: 10%" ng-show="formdata.CorrectRotationCheck">
+      	
+        <div class="form-check row" >
+          <label class="form-check-label col-xs-3">
+            <input class="form-check-input" type="checkbox"  ng-model="formdata.CorrectRotation.Anterior" ng-checked="formdata.CorrectRotation.Anterior==true" name="CorrectRotation" id="CorrectRotation" value="Anterior" >
+            Anterior.    
+          </label>
+        
+          <label class="form-check-label col-xs-3">
+            <input class="form-check-input" type="checkbox"  ng-model="formdata.CorrectRotation.Posterior"  ng-checked="formdata.CorrectRotation.Posterior==true"  name="CorrectRotation" id="CorrectRotation" value="Posterior" >
+            Posterior.  
+          </label>
+           <label class="form-check-label col-xs-3">
+            <input class="form-check-input" type="checkbox"  ng-model="formdata.CorrectRotation.NotApplicable"  ng-checked="formdata.CorrectRotation.NotApplicable==true" name="CorrectRotation" id="CorrectRotation" value="NotApplicable" >
+            Not Applicable  
+          </label>
+        </div> 
+        
+
+      </div>
+    </div>
+   	</div>
+   
+ 
+  
+	

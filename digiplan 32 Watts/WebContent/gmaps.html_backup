@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+
+
+<script>
+	var current = {
+		lat : null,
+		lng : null
+	};
+	
+	var coords = [ {
+		lat : 5,
+		lng : 5
+	}, {
+		lat : 10.2,
+		lng : 19.6
+	}, {
+		lat : 60,
+		lng : 10
+	}
+	, {
+		lat : 30.3398,
+		lng : 76.3869
+	}
+ ];
+	
+	var distanceArray=[];
+	
+
+	function getLocation() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			console.log( "Geolocation is not supported by this browser.");
+		}
+	}
+
+	function showPosition(position) {
+		console.log("Latitude: " + position.coords.latitude + " Longitude: "
+				+ position.coords.longitude);
+		current = {
+			lat : position.coords.latitude,
+			lng : position.coords.longitude
+		};
+		calculateLatLng(addresses[0]);
+		//findDistances();
+		//sortCoords(coords,distanceArray,1);
+	}
+
+	function calculateDistance(from, to) {
+		var lat1=from.lat;
+		var lng1=from.lng;
+		var lat2=to.lat;
+		var lng2=to.lng;
+		
+			var radlat1 = Math.PI * lat1 / 180
+			var radlat2 = Math.PI * lat2 / 180
+			var theta = lng1 - lng2
+			var radtheta = Math.PI * theta / 180
+			var dist = Math.sin(radlat1) * Math.sin(radlat2)
+					+ Math.cos(radlat1) * Math.cos(radlat2)
+					* Math.cos(radtheta);
+			dist = Math.acos(dist)
+			dist = dist * 180 / Math.PI
+			dist = dist * 60 * 1.1515
+			dist = dist * 1.609344
+			//if (unit=="K") { dist = dist * 1.609344 }
+			//if (unit=="N") { dist = dist * 0.8684 }
+		return dist
+		
+	}
+	
+	function findDistances(){
+	for(i in coords){
+		distanceArray[i]=calculateDistance(current, coords[i]);
+	}
+	console.log(distanceArray);
+	}
+	
+	function sortCoords(coordsJsonArray,distanceArray,order){
+	 	var tempDistanceArray=distanceArray.slice();
+	 	var tempCoordsJsonArray=coordsJsonArray.slice();
+		if(order==1||order==undefined||order==""){
+			distanceArray.sort();
+			console.log("ascending");
+			console.log(distanceArray);
+		}
+		else if(order==-1){
+			distanceArray.sort();
+			distanceArray.reverse();
+			console.log("descending");
+			console.log(distanceArray);
+		}
+		
+		for(var i in tempDistanceArray){
+			var newIndex=distanceArray.indexOf(tempDistanceArray[i]);
+			coordsJsonArray[newIndex]=tempCoordsJsonArray[i];
+		}
+		
+		console.log(coords);
+		console.log(coordsJsonArray);
+		}
+	
+	console.log(coords);
+	
+	
+	
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNfUBpqywXDv4twx19Nmjqccc1l_KZsFo"></script>
+<script type="text/javascript">
+
+var geocoder = new google.maps.Geocoder();
+var addresses = ["55,indrapuri,sirhind Road,patiala","sector 50, noida"];
+var coordsOfAddress=[];
+
+var calculateLatLng=function(address){
+geocoder.geocode( { 'address': address}, function(results, status) {
+if (status == google.maps.GeocoderStatus.OK) {
+	var output={};
+	output.lat = results[0].geometry.location.lat();
+	output.lng = results[0].geometry.location.lng();
+	output.address=address;
+	coordsOfAddress.push(output);
+    console.log(coordsOfAddress);
+    calculateLatLng(addresses[addresses.indexOf(address)+1]);
+    } 
+ else{
+	 showMarker();
+ }
+});
+}
+
+/* calculateLatLng(addresses[0]); */
+
+</script>
+
+
+
+</head>
+<body>
+
+ <div id="map" style="width: 500px; height: 400px;"></div>
+ 
+ <script>
+/*  var myCenter = new google.maps.LatLng(current.lat,current.lng);
+ var mapCanvas = document.getElementById("map");
+ var mapOptions = {center: myCenter, zoom: 5};
+ var map = new google.maps.Map(mapCanvas, mapOptions); */
+ 
+	/* var to = new google.maps.LatLng(coords[count].lat,
+			coords[count].lng); */
+	/* var marker = new google.maps.Marker({
+		position : myCenter
+	});
+	marker.setMap(map);
+  */
+  var showMarker=function(){
+	  var myCenter = new google.maps.LatLng(current.lat,current.lng);
+	  var mapCanvas = document.getElementById("map");
+	  var mapOptions = {center: myCenter, zoom: 5};
+	  var map = new google.maps.Map(mapCanvas, mapOptions);
+	  var infowindow = new google.maps.InfoWindow({
+		    content: "as"
+		  });
+	for(var index in coordsOfAddress){
+		var markerPosition=new google.maps.LatLng(coordsOfAddress[index].lat,coordsOfAddress[index].lng);
+		var marker = new google.maps.Marker({
+			position : markerPosition,
+			title:coordsOfAddress[index].address
+		});
+		google.maps.event.addListener(marker, 'click', 
+				
+		function() {
+			infowindow.setContent(this.title);
+			  infowindow.open(map,this);
+			  window.open('https://www.google.com/maps/search/?api=1&query='+encodeURI(this.title)+'&query='+this.position.lat()+','+this.position.lng(), '_blank');
+			 // window.open('https://www.google.com/maps/dir/?api=1&destination='+this.position.lat()+','+this.position.lng()+'&destination='+encodeURI(this.title)+'', '_blank');
+			  
+			  }
+		);
+		marker.setMap(map);
+		
+		}
+	
+		}
+
+		/* 
+		 var myCenter = new google.maps.LatLng(current.lat,current.lng);
+		 var mapCanvas = document.getElementById("map");
+		 var mapOptions = {center: myCenter, zoom: 5};
+		 var map = new google.maps.Map(mapCanvas, mapOptions);
+		 var directionsService = new google.maps.DirectionsService();
+		 var directionsDisplay = new google.maps.DirectionsRenderer();
+		 directionsDisplay.setMap(map);
+		 var haight = new google.maps.LatLng(37.7699298, -122.4469157);
+		 var oceanBeach = new google.maps.LatLng(37.7683909618184, -122.51089453697205);
+		
+
+		 for ( var count in coords) {
+		 var to = new google.maps.LatLng(coords[count].lat,
+		 coords[count].lng);
+		 var marker = new google.maps.Marker({
+		 position : to
+		 });
+		 marker.setMap(map);
+
+		 var infowindow = new google.maps.InfoWindow();
+		 google.maps.event.addListener(marker, 'click',
+		 (function(marker, i) {
+		 return function() {
+		 //infowindow.setContent(locations[i][0]);
+		 calcRoute(myCenter, to);
+		 infowindow.open(map, marker);
+		 }
+		 })(marker, i));
+
+		 }
+
+		 function calcRoute(from, to) {
+		 // var selectedMode = document.getElementById('mode').value;
+		 var request = {
+		 origin : haight,
+		 destination : oceanBeach,
+		
+		 origin: 'Toronto',
+		 destination: 'Vancouver',
+		 // Note that Javascript allows us to access the constant
+		 // using square brackets and a string value as its
+		 // "property."
+		 travelMode : google.maps.TravelMode["DRIVING"]
+		 };
+		 directionsService.route(request, function(response, status) {
+		 if (status == 'OK') {
+		 directionsDisplay.setDirections(response);
+		 }
+		 });
+		 }  */
+			getLocation();
+	</script>
+
+</body>
+</html>

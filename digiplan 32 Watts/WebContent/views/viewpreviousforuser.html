@@ -1,0 +1,50 @@
+<link rel="stylesheet" type="text/css" href="CSS/tableanimation.css">
+<link href="CSS/font-awesome.css" rel="stylesheet" />
+<div style="margin-top: 0px;" ng-init="fetchpreviousdatesforuser();" >
+<div class="row" >
+<div class="col-lg-1 col-1 " > </div>
+<div class="col-lg-10 col-10" >
+<div style="text-align: center;" ng-show="previousdates.length==0;">No Case initiated.</div>
+<div class="row previous-search" ng-show="previousdates.length!=0;" >
+	<label class="col-sm-2"><div class="search-text"><span><i class="fa fa-search" aria-hidden="true"></i></span> Search:</div>  </label>
+	<div class="col-sm-4">
+		<input type="text" placeholder="Patient Name"  ng-model="searchKeywordPatientName" class=" form-control form-control-sm" >
+	</div>
+	<div class="col-sm-4">
+		<input type="text" placeholder="Case ID" ng-model="searchKeywordSerialNumber" pattern="[0-9]+" class="form-control form-control-sm" >
+	</div>
+</div>
+
+
+
+<div class="table-previous" style="overflow-x: auto;">
+<table   ng-show="previousdates.length!=0;" class="table table-hover " style="background-color: white;">
+  <thead class="" style="background-color: #564d48;">
+    <tr>
+      <th>Sno.</th>
+      <th>Patient Name</th>
+      <th>Case ID</th>
+      <th>Patient DOB</th>
+      <th>Date</th>
+      <th>Treatment</th>
+      <th>Download</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="" ng-repeat="x in previousdates  |  filter:{'PatientName':  searchKeywordPatientName} | filter: {'serialnumber' : searchKeywordSerialNumber}" >
+      <th ng-click="loadform(x); "  style="text-align: center; cursor:pointer;">{{$index+1}}</th>
+      <td ng-click="loadform(x); " style="cursor:pointer">{{x.PatientName}}</td>
+      <td ng-click="loadform(x); " style="cursor:pointer">{{x.serialnumber}}</td>
+      <td ng-click="loadform(x); " style="cursor:pointer">{{x.DOB|PatientDOB|PatientDOBfilter}}</td>
+      <td ng-click="loadform(x); " style="cursor:pointer">{{x.Filedate|Stringdate|PatientDOBfilter}}</td>
+      <td><form action="treatment2.jsp" method="post"> <input  type="hidden" name="patientid" value="{{x.serialnumber}}" ><button class="btn btn-link" id="{{x.serialnumber}}"  type="submit" >View</button> </form> </td>
+	 <td><a ng-click="checkreport(x.serialnumber)"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a> </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+ </div>
+<div class="col-lg-2"> </div>
+</div>
+</div>
